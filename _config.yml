@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Vincent''t Deep Learning Blog
+title: Deep Learning Blog
 email: yao_yongcheng@link.cuhk.edu.hk
 description: >- # this means to ignore newlines until "baseurl:"
   Blogs about deep learning in medical imaging.
