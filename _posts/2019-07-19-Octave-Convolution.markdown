@@ -10,22 +10,35 @@ In this blog, the paper [**Drop an Octave: Reducing Spatial Redundancy in Convol
 
 The authors proposed **Octave Convolution (OctConv)**, which can replace vanilla convolution without changing the network structure. 
 
-
-# Inspiration
-> The output feature maps of a convolution layer can also be seen as a mixture of information at different frequencies.
-
-**Octave Convolution** is proposed to factorize the mixed feature maps into low- and high- frequency features maps. The ratio **low-frequency features to high-frequency features** is defined by a hyper-parameter **`alpha`**. The proposed **Octave Convolution** can process and store the low- and high- feature maps in such a way that it can replace the conventional convolution operation without network structure adjustment.
-
 <br/><br/>
 
 
 
-## Background and Objective
+
+
+
+## Background and Inspiration
 
 # Background
 
 > Convolutional Neural Networks (CNNs) have achieved remarkable success in many computer vision tasks and their efficiency keeps increasing with recent efforts to reduce the inherent redundancy in dense model parameters and in the channel dimension of feature maps.
+
 > Substantial redundancy also exists in the spatial dimension of the feature maps produced by CNNs
+
+
+# Inspiration
+
+> A natural image can be decomposed into a low spatial frequency component that describes the smoothly changing structure and a high spatial frequency component that describes the rapidly changing fine details 
+
+> The output feature maps of a convolution layer can also be seen as a mixture of information at different frequencies.
+
+**Octave Convolution** is proposed to factorize the mixed feature maps into low- and high- frequency features maps. The ratio **low-frequency features to high-frequency features** is defined by a hyper-parameter **`alpha`**. The proposed Octave Convolution can process and store the low- and high- feature maps in such a way that it can replace the conventional convolution operation without network structure adjustment.
+
+![fig](/assets/190719_OctConv/img/fig1.jpg)
+
+<br/><br/>
+
+
 
 
 
