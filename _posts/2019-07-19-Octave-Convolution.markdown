@@ -10,7 +10,7 @@ In this blog, the paper [**Drop an Octave: Reducing Spatial Redundancy in Convol
 
 The authors proposed **Octave Convolution (OctConv)**, which can replace vanilla convolution without changing the network structure. 
 
-The implementation of OctConv can be found [**here**](https://github.com/VincentYCYao/OctConv).
+The implementation of OctConv can be found [**here**](https://github.com/facebookresearch/OctConv).
 
 <br/>
 <br/>
