@@ -32,3 +32,10 @@ end
 # Performance-booster for watching directories on Windows
 gem "wdm", "~> 0.1.0", :install_if => Gem.win_platform?
 
+# generate responsive images
+gem "jekyll-responsive-image"
+
+# interface between the Ruby programming language and the ImageMagick image processing library
+gem "rmagick"
+
+# gem "jekyll-srcset"
