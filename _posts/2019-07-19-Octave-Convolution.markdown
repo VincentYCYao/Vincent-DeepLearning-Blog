@@ -178,7 +178,7 @@ Figure 4: Ablation study results on ImageNet. OctConv- equipped models are more 
 * [**“0.75 MobileNet (v1)”**](https://arxiv.org/abs/1704.04861)
 	* OctConv can reduce the FLOPs of **MobileNetV1** by 34%, and provide better accuracy and faster speed in practice; 
 
-* [**“1.0 MobileNet (v2)”**](https://arxiv.org/abs/1801.04381) as baseline and replace the regular convolution with our proposed OctConv.
+* [**“1.0 MobileNet (v2)”**](https://arxiv.org/abs/1801.04381)
 	* OctConv is able to reduce the FLOPs of **MobileNetV2** by 15%, achieving the same accuracy with faster speed. 
 
 
