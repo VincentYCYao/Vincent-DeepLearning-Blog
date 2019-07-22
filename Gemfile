@@ -38,4 +38,4 @@ gem "jekyll-responsive-image"
 # interface between the Ruby programming language and the ImageMagick image processing library
 gem "rmagick"
 
-# gem "jekyll-srcset"
+

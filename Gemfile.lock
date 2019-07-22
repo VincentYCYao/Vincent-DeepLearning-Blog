@@ -29,6 +29,7 @@ GEM
       safe_yaml (~> 1.0)
     jekyll-feed (0.12.1)
       jekyll (>= 3.7, < 5.0)
+    jekyll-fontawesome-svg (0.1.1)
     jekyll-responsive-image (1.5.2)
       jekyll (>= 2.0, < 4.0)
       rmagick (>= 2.0, < 3.0)
@@ -77,6 +78,7 @@ PLATFORMS
 DEPENDENCIES
   jekyll (~> 3.8.6)
   jekyll-feed (~> 0.6)
+  jekyll-fontawesome-svg
   jekyll-responsive-image
   minima (~> 2.0)
   rmagick

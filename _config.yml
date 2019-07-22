@@ -20,7 +20,8 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: /Vincent-DeepLearning-Blog # the subpath of your site, e.g. /blog
 url: /Vincent-DeepLearning-Blog/index.html # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: 
-github_username:  VincentYCYao
+github_username: VincentYCYao
+medium_username: yao_yongcheng
 
 # Build settings
 markdown: kramdown
@@ -34,6 +35,7 @@ kramdown:
 plugins:
   - jekyll-feed
   - jekyll-responsive-image
+
 
 
 
