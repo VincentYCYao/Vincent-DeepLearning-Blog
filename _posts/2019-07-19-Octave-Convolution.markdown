@@ -71,11 +71,11 @@ Figure 2. Detailed design of the Octave Convolution. Green arrows correspond to 
 
 {% raw %}
 	$$ 
-	Y_H = f(X^H; W^{H \rightarrow H}) + upsample(f(X^L; W^{L \rightarrow H}), 2)
+	Y^H = f(X^H; W^{H \rightarrow H}) + upsample(f(X^L; W^{L \rightarrow H}), 2)
 	$$
 
 	$$
-	Y_L = f(X^L; W^{L \rightarrow L}) + f(pool(X^H, 2); W^{L \rightarrow H})
+	Y^L = f(X^L; W^{L \rightarrow L}) + f(pool(X^H, 2); W^{H \rightarrow L})
 	$$
 {% endraw %}
 
