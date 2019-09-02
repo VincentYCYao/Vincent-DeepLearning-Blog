@@ -16,8 +16,7 @@ The authors trained several binary classifiers using 5-layers-2D-CNN (3 convolut
 
 
 
-## 1. Background and Inspiration
-# 1.1. Background
+## 1. Background
 
 > There is no clear differentiation between the brain structure of healthy people and MCI patients, especially in the EMCI stage. 
 
