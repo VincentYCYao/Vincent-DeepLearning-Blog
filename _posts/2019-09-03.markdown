@@ -84,7 +84,6 @@ Figure 2. CNN Architecture
 	* 1st: 32 channels
 	* 2nd: 128 channels
 	* 3rd: 512 channels
-
 * 1 fully connected layer: 128 kernels (neurons) with ReLu activation
 
 * 1 neuron with sigmoid activation
