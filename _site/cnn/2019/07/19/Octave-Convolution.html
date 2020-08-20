@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+  
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Review: Reducing Spatial Redundancy with Octave Convolution | Vt’s Deep Learning Blog</title>
+<meta name="generator" content="Jekyll v3.8.6" />
+<meta property="og:title" content="Review: Reducing Spatial Redundancy with Octave Convolution" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In this blog, the paper Drop an Octave: Reducing Spatial Redundancy in Convolutional Neural Networks with Octave Convolution is reviewed. This paper was first published on arXiv in 2019." />
+<meta property="og:description" content="In this blog, the paper Drop an Octave: Reducing Spatial Redundancy in Convolutional Neural Networks with Octave Convolution is reviewed. This paper was first published on arXiv in 2019." />
+<link rel="canonical" href="/Vincent-DeepLearning-Blog/index.html/Vincent-DeepLearning-Blog/cnn/2019/07/19/Octave-Convolution.html" />
+<meta property="og:url" content="/Vincent-DeepLearning-Blog/index.html/Vincent-DeepLearning-Blog/cnn/2019/07/19/Octave-Convolution.html" />
+<meta property="og:site_name" content="Vt’s Deep Learning Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-07-19T06:00:00+08:00" />
+<script type="application/ld+json">
+{"headline":"Review: Reducing Spatial Redundancy with Octave Convolution","dateModified":"2019-07-19T06:00:00+08:00","datePublished":"2019-07-19T06:00:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"/Vincent-DeepLearning-Blog/index.html/Vincent-DeepLearning-Blog/cnn/2019/07/19/Octave-Convolution.html"},"description":"In this blog, the paper Drop an Octave: Reducing Spatial Redundancy in Convolutional Neural Networks with Octave Convolution is reviewed. This paper was first published on arXiv in 2019.","@type":"BlogPosting","url":"/Vincent-DeepLearning-Blog/index.html/Vincent-DeepLearning-Blog/cnn/2019/07/19/Octave-Convolution.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/Vincent-DeepLearning-Blog/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/Vincent-DeepLearning-Blog/index.html/Vincent-DeepLearning-Blog/feed.xml" title="Vt's Deep Learning Blog" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/Vincent-DeepLearning-Blog/">Vt&#39;s Deep Learning Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/Vincent-DeepLearning-Blog/biography/">Biography</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Review: Reducing Spatial Redundancy with Octave Convolution</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2019-07-19T06:00:00+08:00" itemprop="datePublished">Jul 19, 2019
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>In this blog, the paper <a href="http://arxiv.org/abs/1904.05049"><strong>Drop an Octave: Reducing Spatial Redundancy in Convolutional Neural Networks with Octave Convolution</strong></a> is reviewed. This paper was first published on arXiv in 2019.</p>
+
+<p>The authors proposed <strong>Octave Convolution (OctConv)</strong>, which can replace vanilla convolution without changing the network structure.</p>
+
+<p>The implementation of OctConv can be found <a href="https://github.com/facebookresearch/OctConv"><strong>here</strong></a>.</p>
+
+<p><br />
+<br /></p>
+
+<h2 id="1-background-and-inspiration">1. Background and Inspiration</h2>
+<h1 id="11-background">1.1. Background</h1>
+
+<blockquote>
+  <p>Convolutional Neural Networks (CNNs) have achieved remarkable success in many computer vision tasks and their efficiency keeps increasing with recent efforts to reduce the inherent redundancy in dense model parameters and in the channel dimension of feature maps.</p>
+</blockquote>
+
+<blockquote>
+  <p>Substantial redundancy also exists in the spatial dimension of the feature maps produced by CNNs</p>
+</blockquote>
+
+<p><br /></p>
+
+<h1 id="12-inspiration">1.2. Inspiration</h1>
+
+<blockquote>
+  <p>A natural image can be decomposed into a low spatial frequency component that describes the smoothly changing structure and a high spatial frequency component that describes the rapidly changing fine details</p>
+</blockquote>
+
+<blockquote>
+  <p>The output feature maps of a convolution layer can also be seen as a mixture of information at different frequencies.</p>
+</blockquote>
+
+<p><strong>Octave Convolution</strong> is proposed to factorize the mixed feature maps into low- and high- frequency features maps. The ratio <strong>low-frequency features to high-frequency features</strong> is defined by a hyper-parameter <strong><code class="highlighter-rouge">alpha</code></strong>. The proposed Octave Convolution can process and store the low- and high- feature maps in such a way that it can replace the conventional convolution operation without network structure adjustment.</p>
+
+<p><img src="/Vincent-DeepLearning-Blog/assets/190719_OctConv/img/fig1.png" alt="fig1" /></p>
+
+<p style="text-align: center; color: gray">Figure 1. (a) Motivation. The spatial frequency model for vision [1, 10] shows that natural image can be decomposed into a low and a high spatial frequency part. (b) The output maps of a convolution layer can also be factorized and grouped by their spatial frequency. (c) The proposed multifrequency feature representation stores the smoothly changing, low-frequency maps in a low-resolution tensor to reduce spatial redundancy. (d) The proposed Octave Convolution operates directly on this representation. It updates the information for each group and further enables information exchange between groups.</p>
+
+<p><br />
+<br /></p>
+
+<h2 id="2-methods">2. Methods</h2>
+
+<h1 id="21-octave">2.1. Octave</h1>
+
+<blockquote>
+  <p>defines an octave as a division of the spatial dimensions by a power of 2 (we only explore 21 in this work)</p>
+</blockquote>
+
+<p><br /></p>
+
+<h1 id="22-octave-convolution">2.2. Octave Convolution</h1>
+
+<blockquote>
+  <p>The goal of our design is to effectively process the low and high frequency in their corresponding frequency tensor but also enable efficient communication between the high and low frequency component of our Octave feature representation</p>
+</blockquote>
+
+<p><img src="/Vincent-DeepLearning-Blog/assets/190719_OctConv/img/fig2.png" alt="fig2" /></p>
+
+<p style="text-align: center; color: gray">Figure 2. Detailed design of the Octave Convolution. Green arrows correspond to information updates while red arrows facilitate information exchange between the two frequencies.</p>
+
+<ul>
+  <li>Here α ∈ [0, 1] denotes the ratio of channels allocated to the low-frequency part and the low-frequency feature maps are defined an octave lower than the high frequency ones, i.e. at half of the spatial resolution as shown in Figure 2</li>
+</ul>
+
+<p><strong>Octave Convolution can be rewritten as</strong>:</p>
+
+<script type="math/tex; mode=display">Y^H = f(X^H; W^{H \rightarrow H}) + upsample(f(X^L; W^{L \rightarrow H}), 2)</script>
+
+<script type="math/tex; mode=display">Y^L = f(X^L; W^{L \rightarrow L}) + f(pool(X^H, 2); W^{H \rightarrow L})</script>
+
+<ul>
+  <li><code class="highlighter-rouge">f(X ; W )</code> denotes a convolution with parameters W</li>
+  <li><code class="highlighter-rouge">pool(X, k)</code> is an <strong>average pooling</strong> operation with kernel size k × k and stride k</li>
+  <li><code class="highlighter-rouge">upsample(X, k)</code> is an up-sampling operation by a factor of k via <strong>nearest interpolation</strong></li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="23-integrating-octconv-into-backbone-networks">2.3. Integrating OctConv into Backbone Networks</h1>
+
+<ul>
+  <li>
+    <p>To convert a vanilla feature representation to a multi-frequency feature representation, i.e. <strong>at the first OctConv layer</strong>, we set <script type="math/tex">α_{in} = 0</script> and <script type="math/tex">α_{out} = α</script>. In this case, OctConv paths related to the low-frequency input is disabled, resulting in a simplified version which only has two paths.</p>
+  </li>
+  <li>
+    <p>To convert the multi-frequency feature representation back to vanilla feature representation, i.e. <strong>at the last OctConv layer</strong>, we set <script type="math/tex">α_{out} = 0</script>. In this case, OctConv paths related to the low-frequency output is disabled, resulting in a single full resolution output.</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="24-comparison-to-multi-grid-convolution-mg-conv">2.4. Comparison to Multi-grid Convolution (MG-Conv)</h1>
+<blockquote>
+  <p>The multi-grid convolution (MG-Conv) is a bi-directional and cross-scale convolution operator that can be integrated throughout a CNN, conceptually similar to our OctConv.</p>
+</blockquote>
+
+<blockquote>
+  <p>The core difference is the design of the operator, stemming from different motivations for each design, which leads to significant performance difference. MG-Conv aims to exploit multi-scale information, while OctConv is optimized for reducing spatial redundancy.</p>
+</blockquote>
+
+<p><a href="http://openaccess.thecvf.com/content_cvpr_2017/html/Ke_Multigrid_Neural_Architectures_CVPR_2017_paper.html"><strong>MG-Conv</strong></a> and <strong>OctConv</strong> rely on different down- and up- sampling strategies for the information exchange between features at different scales</p>
+
+<ul>
+  <li><strong>Downsampling</strong>
+    <ul>
+      <li><strong>MG-Conv</strong> relies on <strong>max-pooling</strong> to extract low-frequency features from the high-frequency ones, which requires extra memory to store the index of the maximum value during training</li>
+      <li><strong>OctConv</strong> adopts <strong>average-pooling</strong> for distilling low-frequency features from the high-frequency ones which might be better to downsample the feature maps and does not require extra memory</li>
+    </ul>
+  </li>
+  <li><strong>Upsampling</strong>
+    <ul>
+      <li><strong>MG-Conv</strong> first upsamples and then convolves with the feature map</li>
+      <li><strong>OctConv</strong> performs upsampling after convolution, which is more efficient than MG-Conv</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br />
+<br /></p>
+
+<h2 id="3-experiments-and-results">3. Experiments and Results</h2>
+<h1 id="31-theoretical-gains-on-computational-cost-and-memory-consumption">3.1. Theoretical Gains On Computational Cost and Memory Consumption</h1>
+
+<p><img src="/Vincent-DeepLearning-Blog/assets/190719_OctConv/img/fig6.png" alt="fig6" /></p>
+
+<p style="color: gray"><strong>Table 1</strong>: Relative theoretical gains for the proposed multi- frequency feature representation over vanilla feature maps for varying choices of the ratio α of channels used by the low-frequency feature. When <code class="highlighter-rouge">α = 0</code>, no low-frequency feature is used which is the case of vanilla convolution. Note the number of parameters in OctConv operator is constant regardless of the choice of ratio.</p>
+
+<p><br /></p>
+
+<h1 id="32-ablation-study-on-imagenet">3.2. Ablation Study on ImageNet</h1>
+
+<blockquote>
+  <p>We conduct a series of ablation studies aiming to answer the following questions: 
+1) Does OctConv have better FLOPs-Accuracy trade-off than vanilla convolution? 
+2) In which situation does the OctConv work the best?</p>
+</blockquote>
+
+<p><strong>Resuls:</strong></p>
+<ul>
+  <li>On <strong>ResNet-50</strong>
+    <ul>
+      <li>The flops-accuracy trade-off curve is a concave curve</li>
+      <li>At <code class="highlighter-rouge">α = 0.5</code>, where the network gets similar or better results even when the FLOPs are reduced by about half</li>
+      <li>At <code class="highlighter-rouge">α = 0.125</code>, where the network reaches its best accuracy, 1.2% higher than baseline (black circle)</li>
+      <li>75% of the feature maps can be compressed to half the resolution with only 0,4% accuracy drop</li>
+    </ul>
+  </li>
+  <li>On <a href="https://arxiv.org/abs/1603.05027"><strong>ResNet-(26;50;101;200)</strong></a>, <a href="https://arxiv.org/abs/1611.05431"><strong>ResNeXt-(50,32×4d;101,32×4d)</strong></a>, <a href="https://arxiv.org/abs/1608.06993"><strong>DenseNet-121</strong></a> and <a href="https://arxiv.org/abs/1709.01507"><strong>SE-ResNet-50</strong></a>
+    <ul>
+      <li>OctConv equipped networks for different architecture behave similarly to the Oct-ResNet-50</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/Vincent-DeepLearning-Blog/assets/190719_OctConv/img/fig3.png" alt="fig3" /></p>
+
+<p style="text-align: center; color: gray">Figure 4: Ablation study results on ImageNet. OctConv- equipped models are more efficient and accurate than base- line models. Markers in black in each line denote the corresponding baseline models without OctConv. The colored numbers are the ratio α. Numbers in X axis denote FLOPs in logarithmic scale.</p>
+
+<p><strong>Other Findings</strong></p>
+<ul>
+  <li>Both the information exchanging paths are important, since removing any of them can lead to accuracy drop as shown in Table 3.</li>
+</ul>
+
+<p><img src="/Vincent-DeepLearning-Blog/assets/190719_OctConv/img/fig5.png" alt="fig5" /></p>
+
+<p style="color: gray"><strong>Table 3</strong>: Ablation on down-sampling and inter-octave connectivity on ImageNet.</p>
+
+<ul>
+  <li>At test time, the gain of OctConv over baseline models increases as the test image resolution grows because OctConv can detect large objects better due to its larger receptive field, as shown in Table 4.</li>
+</ul>
+
+<p><img src="/Vincent-DeepLearning-Blog/assets/190719_OctConv/img/fig4.png" alt="fig4" /></p>
+
+<p style="color: gray"><strong>Table 4</strong>: ImageNet classification accuracy. The short length of input images are resized to the target crop size while keeping the aspect ratio unchanged. A center crop is adopted if the input image size is not square. ResNet-50 backbone trained with crops size of 256 × 256 pixels.</p>
+
+<p><br /></p>
+
+<h1 id="33-comparing-with-sotas-on-imagenet">3.3. Comparing with SOTAs on ImageNet</h1>
+
+<p><strong>Small Models</strong></p>
+<ul>
+  <li><a href="https://arxiv.org/abs/1704.04861"><strong>“0.75 MobileNet (v1)”</strong></a>
+    <ul>
+      <li>OctConv can reduce the FLOPs of <strong>MobileNetV1</strong> by 34%, and provide better accuracy and faster speed in practice;</li>
+    </ul>
+  </li>
+  <li><a href="https://arxiv.org/abs/1801.04381"><strong>“1.0 MobileNet (v2)”</strong></a>
+    <ul>
+      <li>OctConv is able to reduce the FLOPs of <strong>MobileNetV2</strong> by 15%, achieving the same accuracy with faster speed.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/Vincent-DeepLearning-Blog/assets/190719_OctConv/img/fig7.png" alt="fig7" /></p>
+
+<p style="color: gray"><strong>Table 5</strong>: ImageNet classification results for Small models. ∗ indicates it is better than original reproduced by MXNet GluonCV v0.4. The inference speed is tested using TVM on Intel Skylake processor (2.0GHz, single thread).</p>
+
+<p><strong>Medium Models</strong></p>
+<blockquote>
+  <p>we compare OctConv with MG-Conv, Elastic and bL-Net which share a similar idea as our method.</p>
+</blockquote>
+
+<p><img src="/Vincent-DeepLearning-Blog/assets/190719_OctConv/img/fig8.png" alt="fig8" /></p>
+
+<p style="color: gray">Table 6: ImageNet Classification results for Middle sized models. ‡ refers to method that replaces “Max Pooling” by extra convolution layer(s) <a href="https://arxiv.org/abs/1807.03848">[4]</a>. § refers to method that uses balanced residual block distribution <a href="https://arxiv.org/abs/1807.03848">[4]</a>.</p>
+
+<ul>
+  <li><a href="http://openaccess.thecvf.com/content_cvpr_2017/html/Ke_Multigrid_Neural_Architectures_CVPR_2017_paper.html"><strong>MG-Conv</strong></a>
+    <ul>
+      <li><strong>Oct-ResNet-26</strong> shows 0.4% better accuracy than <strong>R-MG-34</strong> while costing only one third of FLOPs and half of Params.</li>
+      <li><strong>Oct-ResNet-50</strong>, which costs less than half of FLOPS, achieves 1.8% higher accuracy than <strong>R-MG-34</strong></li>
+    </ul>
+  </li>
+  <li><a href="https://arxiv.org/abs/1812.05262"><strong>Elastic</strong></a>
+    <ul>
+      <li><strong>Oct-ResNeXt-50</strong> achieves better accuracy than the <strong>Elastic based method</strong> (78.7% v.s. 78.4%) while reducing the computational cost by 31%</li>
+      <li><strong>Oct-ResNeXt-101</strong> also achieves higher accuracy than the <strong>Elastic based method</strong> (79.5% v.s. 79.2%) while costing 38% less computation</li>
+    </ul>
+  </li>
+  <li><a href="https://arxiv.org/abs/1807.03848"><strong>bL-Net</strong></a>
+    <ul>
+      <li>OctConv equipped methods achieve better FLOPs-Accuracy trade-off without bells and tricks</li>
+      <li><strong>Oct-ResNet-50</strong> achieves 0.8% higher accuracy than <strong>bL-ResNet-50</strong> under the same computational budget (group 4)</li>
+      <li><strong>Oct-ResNeXt-50</strong> (group 5) and <strong>Oct-ResNeXt-101</strong> (group 6) get better accuracy under comparable or even lower computational budget</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Large Models</strong></p>
+<blockquote>
+  <p>Table 7 shows the results of OctConv in large models.</p>
+</blockquote>
+
+<blockquote>
+  <p>Here, we choose the ResNet-152 as the back- bone CNN, replacing the first 7 × 7 convolution by three 3 × 3 convolution layers and removing the max pooling by a lightweight residual block <a href="https://arxiv.org/abs/1807.03848">[4]</a>. We report results for Oct- ResNet-152 with and without the SE-block <a href="https://arxiv.org/abs/1709.01507">[19]</a>.</p>
+</blockquote>
+
+<p><img src="/Vincent-DeepLearning-Blog/assets/190719_OctConv/img/fig9.png" alt="fig9" /></p>
+
+<p style="color: gray"><strong>Table 7</strong>: ImageNet Classification results for Large models. The names of OctConv-equipped models are in bold font and performance numbers for related works are copied from the corresponding papers. Networks are evaluated using CuDNN v10.03in flop16 on a single Nvidia Titan V100 (32GB) for their training memory cost and speed. Works that employ neural architecture search are denoted by (<script type="math/tex">\diamond</script>). We set batch size to 128 in most cases, but had to adjust it to 64 (noted by †), 32 (noted by ‡) or 8 (noted by §) for networks that are too large to fit into GPU memory.</p>
+
+<p><br />
+<br /></p>
+
+<h2 id="4-conclusions">4. Conclusions</h2>
+<ul>
+  <li>The authors propose a novel Octave Convolution operation to store and process low- and high-frequency features separately to improve the model efficiency</li>
+  <li>Octave Convolution is sufficiently generic to replace the regular convolution operation in-place, and can be used in most 2D and 3D CNNs without model architecture adjustment</li>
+  <li>Beyond saving a substantial amount of computation and memory, Octave Convolution can also improve the recognition performance</li>
+</ul>
+
+
+  </div><a class="u-url" href="/Vincent-DeepLearning-Blog/cnn/2019/07/19/Octave-Convolution.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/Vincent-DeepLearning-Blog/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Vt&#39;s Deep Learning Blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Vt&#39;s Deep Learning Blog</li><li><a class="u-email" href="mailto:yao_yongcheng@link.cuhk.edu.hk">yao_yongcheng@link.cuhk.edu.hk</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/VincentYCYao"><svg class="svg-icon"><use xlink:href="/Vincent-DeepLearning-Blog/assets/minima-social-icons.svg#github"></use></svg> <span class="username">VincentYCYao</span></a></li><li><a href="https://medium.com/@yao_yongcheng"><i class="fab fa-medium-m" style="color:#828282;"></i> VincentYCYao</a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Blogs about deep learning in medical imaging.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

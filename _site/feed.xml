@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/Vincent-DeepLearning-Blog/index.html/Vincent-DeepLearning-Blog/feed.xml" rel="self" type="application/atom+xml" /><link href="/Vincent-DeepLearning-Blog/index.html/Vincent-DeepLearning-Blog/" rel="alternate" type="text/html" /><updated>2020-08-20T23:35:41+08:00</updated><id>/Vincent-DeepLearning-Blog/index.html/Vincent-DeepLearning-Blog/feed.xml</id><title type="html">Vt’s Deep Learning Blog</title><subtitle>Blogs about deep learning in medical imaging.</subtitle><entry><title type="html">Review: Classification of Early- and Late- Mild Cognitive Impairment using 2D-CNN</title><link href="/Vincent-DeepLearning-Blog/index.html/Vincent-DeepLearning-Blog/cnn/2d-cnn/smri/mci/2019/09/02/Diagnosis-of-MCI-using-2DCNN.html" rel="alternate" type="text/html" title="Review: Classification of Early- and Late- Mild Cognitive Impairment using 2D-CNN" /><published>2019-09-02T15:00:00+08:00</published><updated>2019-09-02T15:00:00+08:00</updated><id>/Vincent-DeepLearning-Blog/index.html/Vincent-DeepLearning-Blog/cnn/2d-cnn/smri/mci/2019/09/02/Diagnosis-of-MCI-using-2DCNN</id><content type="html" xml:base="/Vincent-DeepLearning-Blog/index.html/Vincent-DeepLearning-Blog/cnn/2d-cnn/smri/mci/2019/09/02/Diagnosis-of-MCI-using-2DCNN.html">&lt;p&gt;In this blog, the paper &lt;a href=&quot;https://www.mdpi.com/2076-3425/9/9/217&quot;&gt;&lt;strong&gt;A Deep Learning approach for Diagnosis of Mild Cognitive Impairment Based on MRI Images&lt;/strong&gt;&lt;/a&gt; is reviewed. This paper was published on &lt;a href=&quot;https://www.mdpi.com/journal/brainsci&quot;&gt;&lt;em&gt;Brain Sciences&lt;/em&gt;&lt;/a&gt; in 2019.&lt;/p&gt;
+
+&lt;p&gt;The authors trained several binary classifiers using 5-layers-2D-CNN (3 convolutional layers and 2 fully connected layer) to classify early mild cognitive impairment (EMCI), late MCI (LMCI), and normal control (NC, denoted “CN” in the paper). That is, 3 classifiers for distinguishing EMCI-LMCI, EMCI-NC, and LMCI-NC.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;1-background&quot;&gt;1. Background&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;There is no clear differentiation between the brain structure of healthy people and MCI patients, especially in the EMCI stage.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;An early diagnosis at the stage of MCI can be very helpful in identifying people who are at risk of AD.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;These two groups are discriminated from each other based on the degree of memory impairment. In the EMCI patients, the decline in memory is approximately between 1.0–1.5 standard deviations (SD) below the normative mean, while in LMCI, the decline in memory is at least approximately 1.5 SD below the normative mean.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Due to the similarities between the normal aging and MCI patients’ brain structures, a diagnosis of the MCI stage based on MRI and the discrimination between these two groups, mainly between EMCI and normal aging, is one of the most challenging parts of aging research.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;2-methods-and-materials&quot;&gt;2. Methods and Materials&lt;/h2&gt;
+
+&lt;h1 id=&quot;21-structural-mri-data&quot;&gt;2.1. Structural MRI Data&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Data source&lt;/strong&gt;: &lt;a href=&quot;http://www.loni.ucla.edu/ADNI&quot;&gt;&lt;em&gt;Alzheimer’s disease Neuroimaging Initiative (ADNI) database&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Data type&lt;/strong&gt;: structural MRI&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Number of subjects&lt;/strong&gt;: 200 EMCI, 200 LMCI patients, and 200 CN individuals&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p style=&quot;text-align: center; color: gray&quot;&gt;&lt;img src=&quot;/Vincent-DeepLearning-Blog/assets/190901_MCI_CNN/img/fig1.png&quot; alt=&quot;fig1&quot; /&gt;
+Figure 1. The subjects’ clinical and demographic characteristics. For each group, N represents the total number of subjects, M and F show number of males and females, along with the average age, standard deviation (SD) and average mini-mental state examination (MMSE) score.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;22-preprocessing-of-structural-mri&quot;&gt;2.2. Preprocessing of Structural MRI&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Toolbox&lt;/strong&gt;: &lt;a href=&quot;https://www.fil.ion.ucl.ac.uk/spm/software/spm12/&quot;&gt;&lt;em&gt;SPM12&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Segmentation&lt;/strong&gt;: segment the brain tissue into GM, WM, and CSF
+    &lt;blockquote&gt;
+      &lt;p&gt;This paper set the bias regularization on the light regularization (0.001), the full width at half maximum (FWHM) of Gaussian smoothness of bias on the 60 mm cutoff, and affine regularization on the ICBM space template. Moreover, for the spatial normalization of the data to the Montreal Neurological Institute (MNI) spaces, the deformation field was set in the forwarding mode.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Normalization of GM images&lt;/strong&gt;: only use GM images for further analysis.
+    &lt;blockquote&gt;
+      &lt;p&gt;For normalizing all GM images to MNI space, this paper set the written normalized images voxel size on (2 2 2) mm and, for sampling the images to MNI space, the 4th-degree B-Spline for interpolation was considered.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Smoothing of GM images&lt;/strong&gt;: GM images were smoothed by a Gaussian kernel (FWHM = [2 2 2] mm).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Resize&lt;/strong&gt;: from 176 × 240 × 256 to 79 × 95 × 79&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Decompose 3D to 2D&lt;/strong&gt;:
+    &lt;blockquote&gt;
+      &lt;p&gt;3D images were decomposed into 2D slices along the third direction, which named axial, coronal, and sagittal views.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Convert to PNG and resize&lt;/strong&gt;:
+    &lt;blockquote&gt;
+      &lt;p&gt;All the 2D.nii GM files were converted to a portable network graphics (PNG) format and resized to 64 × 64&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Discard useless slices for each view&lt;/strong&gt;: only retain 20 slices for each view (60 2D images for each subject)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;23-cnn-architecture&quot;&gt;2.3. CNN Architecture&lt;/h1&gt;
+
+&lt;p style=&quot;text-align: center; color: gray&quot;&gt;&lt;img src=&quot;/Vincent-DeepLearning-Blog/assets/190901_MCI_CNN/img/fig2.png&quot; alt=&quot;fig2&quot; /&gt;
+Figure 2. CNN Architecture&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;3 convolutional layers followed by ReLu and max-pooling layer
+    &lt;ul&gt;
+      &lt;li&gt;1st: 32 channels&lt;/li&gt;
+      &lt;li&gt;2nd: 128 channels&lt;/li&gt;
+      &lt;li&gt;3rd: 512 channels&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;1 fully connected layer: 128 kernels (neurons) with ReLu activation&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;1 neuron with sigmoid activation&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;24-training-details&quot;&gt;2.4. Training Details&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;Train classifier for each pair of group (3 pairs) and anatomical view (3 views), that is, 9 classifiers&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Initializer&lt;/strong&gt;: glorot uniform initializer&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Optimization&lt;/strong&gt;: Adam&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Loss function&lt;/strong&gt;: binary-cross-entropy&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Regularization&lt;/strong&gt;: regularization for weights and bias, and &lt;a href=&quot;https://arxiv.org/abs/1307.1493&quot;&gt;&lt;strong&gt;dropout&lt;/strong&gt;&lt;/a&gt; were employed&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Image Augmentation&lt;/strong&gt;: sheering, random rotation, zooming (not explained in details)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Training and Testing Split&lt;/strong&gt;: 70% (280 subjects) for training, 30% (120 subjects) for testing&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;25-performance-measurements&quot;&gt;2.5. Performance Measurements&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Accuracy&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;Accuracy = (TP+TN) / (TP+TN+FP+FN)&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Sensitivity (Recall)&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;R = Recall = Sensitivity = TP / (TP+FN)&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Specificity&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;Specificity = TN / (TN+FP)&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;F-score&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;P = Precision = TP / (TP+FP)&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;F-score = 2* (P+R) / (P*R)&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;AUC-ROC&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;3-results&quot;&gt;3. Results&lt;/h2&gt;
+
+&lt;p style=&quot;text-align: center; color: gray&quot;&gt;&lt;img src=&quot;/Vincent-DeepLearning-Blog/assets/190901_MCI_CNN/img/fig3.png&quot; alt=&quot;fig3&quot; /&gt;
+Figure 3. The classification results of the control normal (CN) versus early mild cognitive impairment (EMCI), CN versus late mild cognitive impairment (LMCI) and EMCI versus LMCI.&lt;/p&gt;
+
+&lt;p style=&quot;text-align: center; color: gray&quot;&gt;&lt;img src=&quot;/Vincent-DeepLearning-Blog/assets/190901_MCI_CNN/img/fig4.png&quot; alt=&quot;fig4&quot; /&gt;
+Figure 4. Receiver operating characteristic-area under the curve (ROC-AUC) results of the sagittal, coronal, and axial views.&lt;/p&gt;
+
+&lt;h2 id=&quot;4-conclusions&quot;&gt;4. Conclusions&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The proposed method for feature extraction and classification delivered a high accuracy for the EMCI, LMCI, and CN groups.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The best results were achieved for the classification between CN and LMCI groups in the sagittal view and also, the pairs of EMCI/LMCI have achieved slightly better accuracy than CN/EMCI concerning all views of the MRI.&lt;/p&gt;
+&lt;/blockquote&gt;</content><author><name></name></author><summary type="html">In this blog, the paper A Deep Learning approach for Diagnosis of Mild Cognitive Impairment Based on MRI Images is reviewed. This paper was published on Brain Sciences in 2019.</summary></entry><entry><title type="html">Review: Reducing Spatial Redundancy with Octave Convolution</title><link href="/Vincent-DeepLearning-Blog/index.html/Vincent-DeepLearning-Blog/cnn/2019/07/19/Octave-Convolution.html" rel="alternate" type="text/html" title="Review: Reducing Spatial Redundancy with Octave Convolution" /><published>2019-07-19T06:00:00+08:00</published><updated>2019-07-19T06:00:00+08:00</updated><id>/Vincent-DeepLearning-Blog/index.html/Vincent-DeepLearning-Blog/cnn/2019/07/19/Octave-Convolution</id><content type="html" xml:base="/Vincent-DeepLearning-Blog/index.html/Vincent-DeepLearning-Blog/cnn/2019/07/19/Octave-Convolution.html">&lt;p&gt;In this blog, the paper &lt;a href=&quot;http://arxiv.org/abs/1904.05049&quot;&gt;&lt;strong&gt;Drop an Octave: Reducing Spatial Redundancy in Convolutional Neural Networks with Octave Convolution&lt;/strong&gt;&lt;/a&gt; is reviewed. This paper was first published on arXiv in 2019.&lt;/p&gt;
+
+&lt;p&gt;The authors proposed &lt;strong&gt;Octave Convolution (OctConv)&lt;/strong&gt;, which can replace vanilla convolution without changing the network structure.&lt;/p&gt;
+
+&lt;p&gt;The implementation of OctConv can be found &lt;a href=&quot;https://github.com/facebookresearch/OctConv&quot;&gt;&lt;strong&gt;here&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;1-background-and-inspiration&quot;&gt;1. Background and Inspiration&lt;/h2&gt;
+&lt;h1 id=&quot;11-background&quot;&gt;1.1. Background&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Convolutional Neural Networks (CNNs) have achieved remarkable success in many computer vision tasks and their efficiency keeps increasing with recent efforts to reduce the inherent redundancy in dense model parameters and in the channel dimension of feature maps.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Substantial redundancy also exists in the spatial dimension of the feature maps produced by CNNs&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;12-inspiration&quot;&gt;1.2. Inspiration&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A natural image can be decomposed into a low spatial frequency component that describes the smoothly changing structure and a high spatial frequency component that describes the rapidly changing fine details&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The output feature maps of a convolution layer can also be seen as a mixture of information at different frequencies.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Octave Convolution&lt;/strong&gt; is proposed to factorize the mixed feature maps into low- and high- frequency features maps. The ratio &lt;strong&gt;low-frequency features to high-frequency features&lt;/strong&gt; is defined by a hyper-parameter &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;alpha&lt;/code&gt;&lt;/strong&gt;. The proposed Octave Convolution can process and store the low- and high- feature maps in such a way that it can replace the conventional convolution operation without network structure adjustment.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Vincent-DeepLearning-Blog/assets/190719_OctConv/img/fig1.png&quot; alt=&quot;fig1&quot; /&gt;&lt;/p&gt;
+
+&lt;p style=&quot;text-align: center; color: gray&quot;&gt;Figure 1. (a) Motivation. The spatial frequency model for vision [1, 10] shows that natural image can be decomposed into a low and a high spatial frequency part. (b) The output maps of a convolution layer can also be factorized and grouped by their spatial frequency. (c) The proposed multifrequency feature representation stores the smoothly changing, low-frequency maps in a low-resolution tensor to reduce spatial redundancy. (d) The proposed Octave Convolution operates directly on this representation. It updates the information for each group and further enables information exchange between groups.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;2-methods&quot;&gt;2. Methods&lt;/h2&gt;
+
+&lt;h1 id=&quot;21-octave&quot;&gt;2.1. Octave&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;defines an octave as a division of the spatial dimensions by a power of 2 (we only explore 21 in this work)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;22-octave-convolution&quot;&gt;2.2. Octave Convolution&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The goal of our design is to effectively process the low and high frequency in their corresponding frequency tensor but also enable efficient communication between the high and low frequency component of our Octave feature representation&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Vincent-DeepLearning-Blog/assets/190719_OctConv/img/fig2.png&quot; alt=&quot;fig2&quot; /&gt;&lt;/p&gt;
+
+&lt;p style=&quot;text-align: center; color: gray&quot;&gt;Figure 2. Detailed design of the Octave Convolution. Green arrows correspond to information updates while red arrows facilitate information exchange between the two frequencies.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Here α ∈ [0, 1] denotes the ratio of channels allocated to the low-frequency part and the low-frequency feature maps are defined an octave lower than the high frequency ones, i.e. at half of the spatial resolution as shown in Figure 2&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Octave Convolution can be rewritten as&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;Y^H = f(X^H; W^{H \rightarrow H}) + upsample(f(X^L; W^{L \rightarrow H}), 2)&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;Y^L = f(X^L; W^{L \rightarrow L}) + f(pool(X^H, 2); W^{H \rightarrow L})&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;f(X ; W )&lt;/code&gt; denotes a convolution with parameters W&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pool(X, k)&lt;/code&gt; is an &lt;strong&gt;average pooling&lt;/strong&gt; operation with kernel size k × k and stride k&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;upsample(X, k)&lt;/code&gt; is an up-sampling operation by a factor of k via &lt;strong&gt;nearest interpolation&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;23-integrating-octconv-into-backbone-networks&quot;&gt;2.3. Integrating OctConv into Backbone Networks&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;To convert a vanilla feature representation to a multi-frequency feature representation, i.e. &lt;strong&gt;at the first OctConv layer&lt;/strong&gt;, we set &lt;script type=&quot;math/tex&quot;&gt;α_{in} = 0&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;α_{out} = α&lt;/script&gt;. In this case, OctConv paths related to the low-frequency input is disabled, resulting in a simplified version which only has two paths.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;To convert the multi-frequency feature representation back to vanilla feature representation, i.e. &lt;strong&gt;at the last OctConv layer&lt;/strong&gt;, we set &lt;script type=&quot;math/tex&quot;&gt;α_{out} = 0&lt;/script&gt;. In this case, OctConv paths related to the low-frequency output is disabled, resulting in a single full resolution output.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;24-comparison-to-multi-grid-convolution-mg-conv&quot;&gt;2.4. Comparison to Multi-grid Convolution (MG-Conv)&lt;/h1&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The multi-grid convolution (MG-Conv) is a bi-directional and cross-scale convolution operator that can be integrated throughout a CNN, conceptually similar to our OctConv.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The core difference is the design of the operator, stemming from different motivations for each design, which leads to significant performance difference. MG-Conv aims to exploit multi-scale information, while OctConv is optimized for reducing spatial redundancy.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://openaccess.thecvf.com/content_cvpr_2017/html/Ke_Multigrid_Neural_Architectures_CVPR_2017_paper.html&quot;&gt;&lt;strong&gt;MG-Conv&lt;/strong&gt;&lt;/a&gt; and &lt;strong&gt;OctConv&lt;/strong&gt; rely on different down- and up- sampling strategies for the information exchange between features at different scales&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Downsampling&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;MG-Conv&lt;/strong&gt; relies on &lt;strong&gt;max-pooling&lt;/strong&gt; to extract low-frequency features from the high-frequency ones, which requires extra memory to store the index of the maximum value during training&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;OctConv&lt;/strong&gt; adopts &lt;strong&gt;average-pooling&lt;/strong&gt; for distilling low-frequency features from the high-frequency ones which might be better to downsample the feature maps and does not require extra memory&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Upsampling&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;MG-Conv&lt;/strong&gt; first upsamples and then convolves with the feature map&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;OctConv&lt;/strong&gt; performs upsampling after convolution, which is more efficient than MG-Conv&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;3-experiments-and-results&quot;&gt;3. Experiments and Results&lt;/h2&gt;
+&lt;h1 id=&quot;31-theoretical-gains-on-computational-cost-and-memory-consumption&quot;&gt;3.1. Theoretical Gains On Computational Cost and Memory Consumption&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Vincent-DeepLearning-Blog/assets/190719_OctConv/img/fig6.png&quot; alt=&quot;fig6&quot; /&gt;&lt;/p&gt;
+
+&lt;p style=&quot;color: gray&quot;&gt;&lt;strong&gt;Table 1&lt;/strong&gt;: Relative theoretical gains for the proposed multi- frequency feature representation over vanilla feature maps for varying choices of the ratio α of channels used by the low-frequency feature. When &lt;code class=&quot;highlighter-rouge&quot;&gt;α = 0&lt;/code&gt;, no low-frequency feature is used which is the case of vanilla convolution. Note the number of parameters in OctConv operator is constant regardless of the choice of ratio.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;32-ablation-study-on-imagenet&quot;&gt;3.2. Ablation Study on ImageNet&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;We conduct a series of ablation studies aiming to answer the following questions: 
+1) Does OctConv have better FLOPs-Accuracy trade-off than vanilla convolution? 
+2) In which situation does the OctConv work the best?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Resuls:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;On &lt;strong&gt;ResNet-50&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;The flops-accuracy trade-off curve is a concave curve&lt;/li&gt;
+      &lt;li&gt;At &lt;code class=&quot;highlighter-rouge&quot;&gt;α = 0.5&lt;/code&gt;, where the network gets similar or better results even when the FLOPs are reduced by about half&lt;/li&gt;
+      &lt;li&gt;At &lt;code class=&quot;highlighter-rouge&quot;&gt;α = 0.125&lt;/code&gt;, where the network reaches its best accuracy, 1.2% higher than baseline (black circle)&lt;/li&gt;
+      &lt;li&gt;75% of the feature maps can be compressed to half the resolution with only 0,4% accuracy drop&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;On &lt;a href=&quot;https://arxiv.org/abs/1603.05027&quot;&gt;&lt;strong&gt;ResNet-(26;50;101;200)&lt;/strong&gt;&lt;/a&gt;, &lt;a href=&quot;https://arxiv.org/abs/1611.05431&quot;&gt;&lt;strong&gt;ResNeXt-(50,32×4d;101,32×4d)&lt;/strong&gt;&lt;/a&gt;, &lt;a href=&quot;https://arxiv.org/abs/1608.06993&quot;&gt;&lt;strong&gt;DenseNet-121&lt;/strong&gt;&lt;/a&gt; and &lt;a href=&quot;https://arxiv.org/abs/1709.01507&quot;&gt;&lt;strong&gt;SE-ResNet-50&lt;/strong&gt;&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;OctConv equipped networks for different architecture behave similarly to the Oct-ResNet-50&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Vincent-DeepLearning-Blog/assets/190719_OctConv/img/fig3.png&quot; alt=&quot;fig3&quot; /&gt;&lt;/p&gt;
+
+&lt;p style=&quot;text-align: center; color: gray&quot;&gt;Figure 4: Ablation study results on ImageNet. OctConv- equipped models are more efficient and accurate than base- line models. Markers in black in each line denote the corresponding baseline models without OctConv. The colored numbers are the ratio α. Numbers in X axis denote FLOPs in logarithmic scale.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Other Findings&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Both the information exchanging paths are important, since removing any of them can lead to accuracy drop as shown in Table 3.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Vincent-DeepLearning-Blog/assets/190719_OctConv/img/fig5.png&quot; alt=&quot;fig5&quot; /&gt;&lt;/p&gt;
+
+&lt;p style=&quot;color: gray&quot;&gt;&lt;strong&gt;Table 3&lt;/strong&gt;: Ablation on down-sampling and inter-octave connectivity on ImageNet.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;At test time, the gain of OctConv over baseline models increases as the test image resolution grows because OctConv can detect large objects better due to its larger receptive field, as shown in Table 4.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Vincent-DeepLearning-Blog/assets/190719_OctConv/img/fig4.png&quot; alt=&quot;fig4&quot; /&gt;&lt;/p&gt;
+
+&lt;p style=&quot;color: gray&quot;&gt;&lt;strong&gt;Table 4&lt;/strong&gt;: ImageNet classification accuracy. The short length of input images are resized to the target crop size while keeping the aspect ratio unchanged. A center crop is adopted if the input image size is not square. ResNet-50 backbone trained with crops size of 256 × 256 pixels.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;33-comparing-with-sotas-on-imagenet&quot;&gt;3.3. Comparing with SOTAs on ImageNet&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;Small Models&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://arxiv.org/abs/1704.04861&quot;&gt;&lt;strong&gt;“0.75 MobileNet (v1)”&lt;/strong&gt;&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;OctConv can reduce the FLOPs of &lt;strong&gt;MobileNetV1&lt;/strong&gt; by 34%, and provide better accuracy and faster speed in practice;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://arxiv.org/abs/1801.04381&quot;&gt;&lt;strong&gt;“1.0 MobileNet (v2)”&lt;/strong&gt;&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;OctConv is able to reduce the FLOPs of &lt;strong&gt;MobileNetV2&lt;/strong&gt; by 15%, achieving the same accuracy with faster speed.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Vincent-DeepLearning-Blog/assets/190719_OctConv/img/fig7.png&quot; alt=&quot;fig7&quot; /&gt;&lt;/p&gt;
+
+&lt;p style=&quot;color: gray&quot;&gt;&lt;strong&gt;Table 5&lt;/strong&gt;: ImageNet classification results for Small models. ∗ indicates it is better than original reproduced by MXNet GluonCV v0.4. The inference speed is tested using TVM on Intel Skylake processor (2.0GHz, single thread).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Medium Models&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;we compare OctConv with MG-Conv, Elastic and bL-Net which share a similar idea as our method.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Vincent-DeepLearning-Blog/assets/190719_OctConv/img/fig8.png&quot; alt=&quot;fig8&quot; /&gt;&lt;/p&gt;
+
+&lt;p style=&quot;color: gray&quot;&gt;Table 6: ImageNet Classification results for Middle sized models. ‡ refers to method that replaces “Max Pooling” by extra convolution layer(s) &lt;a href=&quot;https://arxiv.org/abs/1807.03848&quot;&gt;[4]&lt;/a&gt;. § refers to method that uses balanced residual block distribution &lt;a href=&quot;https://arxiv.org/abs/1807.03848&quot;&gt;[4]&lt;/a&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://openaccess.thecvf.com/content_cvpr_2017/html/Ke_Multigrid_Neural_Architectures_CVPR_2017_paper.html&quot;&gt;&lt;strong&gt;MG-Conv&lt;/strong&gt;&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Oct-ResNet-26&lt;/strong&gt; shows 0.4% better accuracy than &lt;strong&gt;R-MG-34&lt;/strong&gt; while costing only one third of FLOPs and half of Params.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Oct-ResNet-50&lt;/strong&gt;, which costs less than half of FLOPS, achieves 1.8% higher accuracy than &lt;strong&gt;R-MG-34&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://arxiv.org/abs/1812.05262&quot;&gt;&lt;strong&gt;Elastic&lt;/strong&gt;&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Oct-ResNeXt-50&lt;/strong&gt; achieves better accuracy than the &lt;strong&gt;Elastic based method&lt;/strong&gt; (78.7% v.s. 78.4%) while reducing the computational cost by 31%&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Oct-ResNeXt-101&lt;/strong&gt; also achieves higher accuracy than the &lt;strong&gt;Elastic based method&lt;/strong&gt; (79.5% v.s. 79.2%) while costing 38% less computation&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://arxiv.org/abs/1807.03848&quot;&gt;&lt;strong&gt;bL-Net&lt;/strong&gt;&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;OctConv equipped methods achieve better FLOPs-Accuracy trade-off without bells and tricks&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Oct-ResNet-50&lt;/strong&gt; achieves 0.8% higher accuracy than &lt;strong&gt;bL-ResNet-50&lt;/strong&gt; under the same computational budget (group 4)&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Oct-ResNeXt-50&lt;/strong&gt; (group 5) and &lt;strong&gt;Oct-ResNeXt-101&lt;/strong&gt; (group 6) get better accuracy under comparable or even lower computational budget&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Large Models&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Table 7 shows the results of OctConv in large models.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Here, we choose the ResNet-152 as the back- bone CNN, replacing the first 7 × 7 convolution by three 3 × 3 convolution layers and removing the max pooling by a lightweight residual block &lt;a href=&quot;https://arxiv.org/abs/1807.03848&quot;&gt;[4]&lt;/a&gt;. We report results for Oct- ResNet-152 with and without the SE-block &lt;a href=&quot;https://arxiv.org/abs/1709.01507&quot;&gt;[19]&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Vincent-DeepLearning-Blog/assets/190719_OctConv/img/fig9.png&quot; alt=&quot;fig9&quot; /&gt;&lt;/p&gt;
+
+&lt;p style=&quot;color: gray&quot;&gt;&lt;strong&gt;Table 7&lt;/strong&gt;: ImageNet Classification results for Large models. The names of OctConv-equipped models are in bold font and performance numbers for related works are copied from the corresponding papers. Networks are evaluated using CuDNN v10.03in flop16 on a single Nvidia Titan V100 (32GB) for their training memory cost and speed. Works that employ neural architecture search are denoted by (&lt;script type=&quot;math/tex&quot;&gt;\diamond&lt;/script&gt;). We set batch size to 128 in most cases, but had to adjust it to 64 (noted by †), 32 (noted by ‡) or 8 (noted by §) for networks that are too large to fit into GPU memory.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;4-conclusions&quot;&gt;4. Conclusions&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;The authors propose a novel Octave Convolution operation to store and process low- and high-frequency features separately to improve the model efficiency&lt;/li&gt;
+  &lt;li&gt;Octave Convolution is sufficiently generic to replace the regular convolution operation in-place, and can be used in most 2D and 3D CNNs without model architecture adjustment&lt;/li&gt;
+  &lt;li&gt;Beyond saving a substantial amount of computation and memory, Octave Convolution can also improve the recognition performance&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">In this blog, the paper Drop an Octave: Reducing Spatial Redundancy in Convolutional Neural Networks with Octave Convolution is reviewed. This paper was first published on arXiv in 2019.</summary></entry></feed>
