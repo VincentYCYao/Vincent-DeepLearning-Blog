@@ -22,6 +22,9 @@ disqus:
   shortname: csrhymes
 
 
+theme: bulma-clean-theme
+
+
 plugins:
   - jekyll-sitemap
   - jekyll-paginate
