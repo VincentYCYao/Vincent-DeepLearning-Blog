@@ -25,7 +25,7 @@ medium_username: yao_yongcheng
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-cayman
+theme: minima 
 
 # kramdown settings
 kramdown:
