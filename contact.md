@@ -10,4 +10,6 @@ order: 1
 
 **Medium:** [VincentYCYao](https://medium.com/@vincentycyao)
 
+**Email:** yao_yongcheng@link.cuhk.edu.hk
+
 [Go to the Home Page]({{ '/' | absolute_url }})
