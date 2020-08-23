@@ -2,7 +2,7 @@
 layout: post
 title:  "Review: Reducing Spatial Redundancy with Octave Convolution"
 date:   2019-07-19 06:00:00 +0800
-categories: CNN
+categories: deeplearning
 ---
 
 

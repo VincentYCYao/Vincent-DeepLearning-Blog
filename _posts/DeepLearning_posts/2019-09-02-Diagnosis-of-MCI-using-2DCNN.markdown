@@ -2,7 +2,7 @@
 layout: post
 title:  "Review: Classification of Early- and Late- Mild Cognitive Impairment using 2D-CNN"
 date:   2019-09-02 15:00:00 +0800
-categories: CNN 2D-CNN sMRI MCI
+categories: deeplearning
 ---
 
 
