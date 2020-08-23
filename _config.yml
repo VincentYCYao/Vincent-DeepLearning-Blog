@@ -26,6 +26,7 @@ github:
 plugins:
   - jekyll-target-blank
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 target-blank:
     rel: nofollow
