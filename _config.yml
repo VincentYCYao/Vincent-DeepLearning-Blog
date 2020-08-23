@@ -19,12 +19,15 @@ theme: # leave it empty
 author: Vincent Y.C. Yao
 image: 
 twitter:
-  username: 
+  username: VincentYCYao1
+github: 
+  username: VincentYCYao
 
 plugins:
   - jekyll-target-blank
+  - jekyll-seo-tag
 
 target-blank:
     rel: nofollow
 
-header_page_refs: ['about', 'contact']
+header_page_refs: ['now', 'about', 'contact']

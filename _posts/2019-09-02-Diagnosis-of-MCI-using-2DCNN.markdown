@@ -6,7 +6,7 @@ categories: CNN 2D-CNN sMRI MCI
 ---
 
 
-In this blog, the paper [**A Deep Learning approach for Diagnosis of Mild Cognitive Impairment Based on MRI Images**](https://www.mdpi.com/2076-3425/9/9/217) is reviewed. This paper was published on [*Brain Sciences*](https://www.mdpi.com/journal/brainsci) in 2019.
+In this blog, the paper [A Deep Learning approach for Diagnosis of Mild Cognitive Impairment Based on MRI Images](https://www.mdpi.com/2076-3425/9/9/217) is reviewed. This paper was published on [*Brain Sciences*](https://www.mdpi.com/journal/brainsci) in 2019.
 
 The authors trained several binary classifiers using 5-layers-2D-CNN (3 convolutional layers and 2 fully connected layer) to classify early mild cognitive impairment (EMCI), late MCI (LMCI), and normal control (NC, denoted "CN" in the paper). That is, 3 classifiers for distinguishing EMCI-LMCI, EMCI-NC, and LMCI-NC.
 

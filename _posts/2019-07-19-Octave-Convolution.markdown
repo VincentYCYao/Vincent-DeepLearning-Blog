@@ -6,7 +6,7 @@ categories: CNN
 ---
 
 
-In this blog, the paper [**Drop an Octave: Reducing Spatial Redundancy in Convolutional Neural Networks with Octave Convolution**](http://arxiv.org/abs/1904.05049) is reviewed. This paper was first published on arXiv in 2019.
+In this blog, the paper [Drop an Octave: Reducing Spatial Redundancy in Convolutional Neural Networks with Octave Convolution](http://arxiv.org/abs/1904.05049) is reviewed. This paper was first published on arXiv in 2019.
 
 The authors proposed **Octave Convolution (OctConv)**, which can replace vanilla convolution without changing the network structure. 
 
