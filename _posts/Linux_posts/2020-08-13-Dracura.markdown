@@ -1,0 +1,76 @@
+---
+layout: post
+title:  "Dracura: an amazing theme"
+date:   2020-08-13 20:00:00 +0800
+categories: Linux
+---
+
+
+
+
+
+# Dracura: an amazing theme
+
+To begin a pleasant journey on linux system and command line, a beautiful color scheme for terminal emulator can not only give you visual enjoyment, but also improvement of your working efficiency. The colorized output would help you partitiont your command in just a glance, making the code more readable. Visual simulation always helps us think and act fast.
+
+## Dracura for gnome terminal
+
+Reference: [Dracura Theme for Gnome Terminal](https://draculatheme.com/gnome-terminal/)
+
+* **Installation**
+
+```bash
+sudo apt-get install dconf-cli
+git clone https://github.com/dracula/gnome-terminal
+cd gnome-terminal
+./install.sh
+rm -r gnome-terminal
+```
+
+## Dracura for macOS terminal
+
+Reference: [Dracura Theme for Terminal.app](https://draculatheme.com/terminal)
+
+* **Installation**
+
+```bash
+git clone https://github.com/dracula/terminal-app.git
+```
+
+* **Activation**
+
+1. *Terminal > Settings Tab*
+2. Click *"Gear" icon*
+3. Click *Import...*
+4. Select the `Dracula.terminal` file
+5. Click *Default*
+
+## Dracura for Vim
+
+Reference: [Dracura for Vim](https://draculatheme.com/vim)
+
+* **Installation**
+
+```bash
+# Create theme folder (in case you don't have yet):
+# If you use vim 8.0 (and not 8.2), you may need to use ~/.vim/pack/themes/opt instead.
+mkdir -p ~/.vim/pack/themes/start
+
+# Navigate to the folder above:
+cd ~/.vim/pack/themes/start
+
+# Clone the repository using the "dracula" name:
+git clone https://github.com/dracula/vim.git dracula
+
+# Create configuration file (in case you don't have yet):
+touch ~/.vimrc
+```
+
+​		append the followings to ~/.vimrc
+
+```
+packadd! dracula
+syntax enable
+colorscheme dracula
+```
+

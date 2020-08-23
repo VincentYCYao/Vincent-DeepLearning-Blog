@@ -1,0 +1,242 @@
+---
+layout: post
+title:  "Fish: the friendly interactive shell"
+date:   2020-08-09 19:45:00 +0800
+categories: linux 
+---
+
+
+
+#  Fish: the friendly interactive shell
+
+ [`Fish`](https://fishshell.com) is a smart and user-friendly command line shell for Linux, macOS, and the rest of the family. 
+
+## Installation
+
+On macOS:
+
+```bash
+brew install fish
+```
+
+or
+
+```bash
+sudo port install fish
+```
+
+On Ubuntu:
+
+```bash
+apt install fish
+```
+
+Other platforms: https://fishshell.com
+
+
+
+## Features
+
+### Autosuggestions
+
+`Fish`'s autosuggestion function is the best I have ever encountered! You’ll love it! No configuration is needed.
+
+It knows ablout paths, options, command history.
+
+* To accept the autosuggestion, hit `→` (right arrow) or `Ctll+F`. 
+* To accept a single word of the autosuggestion, `Alt+→` (right arrow). 
+* To see more suggestions, hit `Tab`
+
+### Manual page completions
+
+Fish generates completions automatically by parsing your installed man pages.
+
+```
+fish_update_completions
+```
+
+e.g.
+
+hit `Tab` whenever you want to choose an option from a list
+
+```
+➤ ~/Desktop> rsync -
+-0  --from0                               (All *from/filter files are delimited by 0s)
+-4  --ipv4                                                               (Prefer IPv4)
+-6  --ipv6                                                               (Prefer IPv6)
+-8  --8-bit-output                          (Leave high-bit chars unescaped in output)
+…and 101 more rows
+```
+
+### Web based configuration
+
+> For those lucky few with a graphical computer, you can set your colors and view functions, variables, and history all from a web page.
+
+```
+fish_config
+```
+
+### Syntax highlighting
+
+You'll quickly notice that `fish` performs syntax highlighting as you type. Invalid commands are colored red by default. A command may be invalid because it does not exist, or refers to a file that you cannot execute. When the command becomes valid, it is shown in a different color.
+
+
+
+## Commands
+
+The [tutorial pag](https://fishshell.com/docs/current/tutorial.html)e is a good start to learn `fish`.
+
+To learn more about `fish`, check the [fish documentation page](https://fishshell.com/docs/current/index.html#intro)
+
+### Variables
+
+```
+# set variable
+set <var_name> <value>
+# erase (or "delete") a variable with -e or --erase
+set -e <var_name>
+```
+
+### Exports shell variables
+
+Sometimes you need to have a variable available to an external command, often as a setting. For example many programs like git or man read the `$PAGER` variable to figure out your preferred pager (the program that lets you scroll text). Other variables used like this include ​`$BROWSER`, `$LANG` (to configure your language) and ​`$PATH`. You'll note these are written in `ALLCAPS`, but that's just a convention.
+
+* **Export:** `set` with option either `--export` or just `-x`.
+
+```
+➤ set -x MyVariable SomeValue
+➤ env | grep MyVariable
+MyVariable=SomeValue
+```
+
+* **Unexport:** `set` with option either `--unexport` or just `-u`.
+
+### Command substitutions
+
+Command substitutions use the output of one command as an argument to another. `fish` uses parentheses for this purpose
+
+```
+➤ echo In (pwd), running (uname)
+In /home/vincent, running Linux
+```
+
+### Function definition & autoloading
+
+* **Fish function definition:** A `fish` function is a list of commands, which may optionally take arguments. Unlike other shells, arguments are not passed in "numbered variables" like `$1`, but instead in a single list `$argv`. To create a function, use the `function` builtin:
+
+```
+➤ function say_hello
+     echo Hello $argv
+  end
+```
+
+* **Define function and save it automatically:** use `funced` and `funcsave`
+
+```
+➤ funced my_fish_function
+my_fish_function> function my_fish_function
+                           echo 'this is my first fish function'
+                  end
+➤  my_fish_function 
+this is my first fish function
+```
+
+* **Default functions:** Unlike other shells, `fish` does not have aliases or special prompt syntax. Functions take their place. You can list the names of all functions with the `functions` keyword (note the plural!). `fish` starts out with a number of functions:
+
+```
+➤ functions
+alias, cd, delete-or-exit, dirh, dirs, down-or-search, eval, export, fish_command_not_found_setup, fish_config, fish_default_key_bindings, fish_prompt, fish_right_prompt, fish_sigtrap_handler, fish_update_completions, funced, funcsave, grep, help, history, isatty, ls, man, math, nextd, nextd-or-forward-word, open, popd, prevd, prevd-or-backward-word, prompt_pwd, psub, pushd, seq, setenv, trap, type, umask, up-or-search, vared
+```
+
+​	Note: `functions` is used for displaying all `fish` functions, `function` is `fish` buidin to define function*
+
+* **Autoloading functions**: When `fish` encounters a command, it attempts to autoload a function for that command, by looking for a file with the name of that command in `~/.config/fish/functions/`.
+
+### Loops
+
+Iterate over a list
+
+```
+➤ for file in *.txt
+      cp $file $file.bak
+   end
+```
+
+Iterate over a list of numbers
+
+```
+➤ for x in (seq 2)
+      echo $x
+   end
+1
+2
+```
+
+While loop
+
+```
+➤ while true
+      echo "Loop forever"
+  end
+```
+
+### $PATH
+
+`$PATH` is an environment variable containing the directories that `fish` searches for commands. 
+
+Note: Unlike other shells, $PATH is a [list](https://fishshell.com/docs/current/tutorial.html#tut-lists), not a colon-delimited string.
+
+Add path `/usr/sbin` to `$PATH`: (prepend or append)
+
+```
+set PATH /usr/sbin $PATH
+```
+
+```
+set PATH $PATH /usr/sbin
+```
+
+Remove path `/usr/sbin` from `$PATH`:
+
+```
+set PATH (string match -v /usr/sbin $PATH)
+```
+
+### Fish’s startup configuration (equivalent to /.bashrc)
+
+`fish` starts by executing commands in `~/.config/fish/config.fish`. You can create it if it does not exist.
+
+It is possible to directly create functions and variables in `config.fish` file, using the commands shown above. For example, in `~/.config/fish/config.fish`:
+
+```
+# add path to $PATH
+set -x PATH $PATH /sbin/
+
+# user-defined functions
+function ll
+    ls -lh $argv
+end
+```
+
+### Universal Variables
+
+A universal variable is a variable whose value is shared across all instances of `fish`, now and in the future – even after a reboot. You can make a variable universal with `set -U`:
+
+```
+set -U EDITOR vim
+```
+
+### Switch to fish
+
+Add the fish shell `/usr/local/bin/fish` to `/etc/shells` with:
+
+```bash
+echo /usr/local/bin/fish | sudo tee -a /etc/shells
+```
+
+Change default shell to `fish`
+
+```bash
+chsh -s /usr/local/bin/fish
+```
+

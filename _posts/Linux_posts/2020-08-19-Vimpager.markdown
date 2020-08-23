@@ -1,0 +1,48 @@
+---
+layout: post
+title:  "Vimpager: pager using vim and less.vim"
+date:   2020-08-19 20:50:00 +0800
+categories: Linux
+---
+
+
+
+
+
+# Vimpager: pager using vim and less.vim
+
+*reference: [vimpager](https://github.com/rkitover/vimpager)*
+
+## Synopsis
+
+```bash
+vimpager [options] <some file>
+```
+
+## Install
+
+On Ubuntu or Debian, use the following to install a package:
+
+```bash
+git clone git://github.com/rkitover/vimpager
+cd vimpager
+sudo make install-deb
+```
+
+Check the path for `vimpager`
+
+```bash
+➤ whereis vimpager
+<some-path>
+```
+
+Set `vimpager` as default pager. In your ~/.bashrc add the following:
+
+```bash
+export PAGER=<some-path>
+alias less=$PAGER
+alias zless=$PAGER
+```
+
+
+

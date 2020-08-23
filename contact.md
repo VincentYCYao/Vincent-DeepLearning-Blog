@@ -2,7 +2,7 @@
 layout: page
 title: Contact
 tagline: 
-ref: contact
+ref: Contact
 order: 1
 ---
 
@@ -12,4 +12,3 @@ order: 1
 
 **Email:** yao_yongcheng@link.cuhk.edu.hk
 
-[Go to the Home Page]({{ '/' | absolute_url }})

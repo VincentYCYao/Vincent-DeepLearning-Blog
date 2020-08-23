@@ -1,0 +1,42 @@
+---
+layout: post
+title:  "Hyper: an Electron-based terminal"
+date:   2020-08-15 20:05:00 +0800
+categories: Linux
+---
+
+# Hyper: an Electron-based terminal
+
+[Hyper](https://hyper.is) is an Electron-based terminal
+
+* Built on HTML/CSS/JS
+
+* Fully extensible
+
+* Install themes and plugins from the command line
+
+## Easy Configuration
+
+Configuration of plugins, themes, and all other things can be done by editing `.hyper.js`
+
+```bash
+nano ~/.hyper.js
+```
+
+## Amazing Plugins & Theme (my choices)
+
+Plugins installation is simple, just type in:
+
+```
+hyper i [plugin name]
+```
+
+Below are the plugins I am using. For more, go to the [plugins table](https://hyper.is/plugins/newest).
+
+* [hyper-pane](https://hyper.is/store/hyper-pane)
+* [hyper-fading-scrollbar](https://hyper.is/store/hyper-fading-scrollbar)
+* [hyper-tabs-enhanced](https://hyper.is/store/hyper-tabs-enhanced)
+
+As for theme, dracula is my favoriate.
+
+* [hyper-dracula](https://hyper.is/store/hyper-dracula)

@@ -1,9 +1,9 @@
 ---
 layout: page
-title: About
+title: Biography
 tagline: 
-permalink: /about.html
-ref: about
+permalink: /Biography.html
+ref: Biography
 order: 0
 ---
 
@@ -11,4 +11,3 @@ I am currently a Research Assistant, working in Department of Imaging and Interv
 
 My research interest is the application of deep learning in medical imaging.
 
-[Go to the Home Page]({{ '/' | absolute_url }})
