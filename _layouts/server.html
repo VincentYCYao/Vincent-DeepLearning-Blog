@@ -6,13 +6,13 @@ layout: default
 
   {{ content }}
 
-  <h2>Deep Learning in Medical Imaging</h2>
+  <h2>Linux Server Maintenance</h2>
 
   <div>&nbsp;</div>
 
   <ul class="post-list">
     {% for post in site.posts %}
-      {% if post.path contains 'DeepLearning_posts' %}
+      {% if post.path contains 'Server_posts' %}
         <li>
 
           {% assign date_format = site.cayman-blog.date_format | default: "%b %-d, %Y" %}
@@ -23,7 +23,7 @@ layout: default
           </h2>
 
           <!-- Uncomment the below line to add preview of blog -->
-          {{ post.excerpt | markdownify | truncatewords: 30 }} 
+          <!-- {{ post.excerpt | markdownify | truncatewords: 30 }} -->
 
         </li>
       {% endif %}
