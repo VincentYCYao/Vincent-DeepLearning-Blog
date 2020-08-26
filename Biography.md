@@ -15,7 +15,8 @@ order: 0
   * the application in medical imaging
   * model interpretability
 * Neuroscience
-* Neuroimaging
+  * neuroimaging (functional MRI, diffusion MRI)
+  * functional connectivity analysis
 
 # Education
 
@@ -36,8 +37,9 @@ order: 0
 
 * The 17th International Conference on Biomedical Engineering (ICBME 2019), Singapore, **oral presentation**
 
-# Scholarship
+# Scholarship & Studentship
 
+* Postgraduate Studentship (2018-2020), The Chinese University of Hong Kong (CUHK)
 * The Keyuan Scholarship (2016), South China University of Technology (SCUT)
 * The Longsun Scholarship (2015), South China University of Technology (SCUT)
 * The Dow Scholarship (2014), South China University of Technology (SCUT)

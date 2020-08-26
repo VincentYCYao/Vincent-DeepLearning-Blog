@@ -31,4 +31,4 @@ plugins:
 target-blank:
     rel: nofollow
 
-header_page_refs: ['Research','Linux', 'Python', 'Biography']
+header_page_refs: ['Research','Linux', 'Python', 'MyProject', 'Biography']
