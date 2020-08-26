@@ -15,7 +15,7 @@ categories: linux
 
 **Main idea:** Assuming we have `server-A` with a static IP `<static-ip>` and `server-B` without a static IP. We can, first, access `server-B` from the same internal network via SSH. Once we are on `server-B`, as the `server-A` can be access with the `<static-ip>`, a tunnel can be create from `server-B` to `server-A`. As long as we can maintain this tunnel, the access  from `server-A` to `server-B`can be guaranteed.
 
-**Account:** The configuration on both local and remote server should be under the `admin` account. To complete the setting, the account must be in the `sudo`group. To retain the tunnel after configuration, the account on both side can not be deleted. Upon successful configuration, other users from both side can communicate with each other.
+**Account:** The configuration on both local and remote server should be under the `admin` account. To complete the setting, the account must be in the `sudo` group. To retain the tunnel after configuration, the account on both side can not be deleted. Upon successful configuration, other users from both side can communicate with each other.
 
 
 

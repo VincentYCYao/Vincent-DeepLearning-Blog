@@ -30,3 +30,5 @@ sudo nano /etc/sshd_banner
 sudo service sshd restart
 ```
 
+**Tips:** use the [Text to ASCII Art Generator](http://patorjk.com/software/taag/#p=testall&h=3&v=3&c=bash&f=DANC4&t=server%0A) to create an awsome banner
+
