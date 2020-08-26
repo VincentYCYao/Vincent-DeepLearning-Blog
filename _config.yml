@@ -1,5 +1,5 @@
 title: Vincent's Deep Learning Blog
-description: It's all about deep learning in medical imaging.
+description: It's all about deep learning in medical imaging. 
 show_downloads: true
 
 baseurl: "/Vincent-DeepLearning-Blog" # change this to the subpath of your site, e.g. /blog. Leave it empty if you don't need it.
@@ -31,4 +31,4 @@ plugins:
 target-blank:
     rel: nofollow
 
-header_page_refs: ['DeepLearning','Linux','Server', 'Biography', 'Contact']
+header_page_refs: ['Research','Linux', 'Python', 'Biography']

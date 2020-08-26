@@ -6,26 +6,73 @@ layout: default
 
   {{ content }}
 
-  <h2>All Latest Posts: Deep Learning & Linux</h2>
-
-  <div>&nbsp;</div>
-
+  <h1>Deep Learning Research</h1>
   <ul class="post-list">
     {% for post in site.posts %}
-      <li>
-
-        {% assign date_format = site.cayman-blog.date_format | default: "%b %-d, %Y" %}
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | absolute_url }}" title="{{ post.title }}">{{ post.title | escape }}</a>
-        </h2>
-
-       <!-- Uncomment the below line to add preview of blog -->
-       <!-- {{ post.excerpt | markdownify | truncatewords: 30 }} -->
-
-      </li>
+      {% if post.path contains 'DeepLearning_posts'%}
+        <li>
+          {% assign date_format = site.cayman-blog.date_format | default: "%b %-d, %Y" %}
+          <span class="post-meta">{{ post.date | date: date_format }}</span>
+          <h2>
+            <a class="post-link" href="{{ post.url | absolute_url }}" title="{{ post.title }}">{{ post.title | escape }}</a>
+          </h2>
+          <!-- Uncomment the below line to add preview of blog -->
+          {{ post.excerpt | markdownify | truncatewords: 25 }}
+        </li>
+      {% endif %}
     {% endfor %}
   </ul>
+
+
+  <h1>Linux Server Maintenance</h1>
+    <b>On my way to be a eligible server administrator ...</b>
+    <div>&nbsp;</div>
+
+    <ul class="post-list">
+    {% for post in site.posts %}
+      {% if post.path contains 'Server_posts'%}
+        <li>
+          {% assign date_format = site.cayman-blog.date_format | default: "%b %-d, %Y" %}
+          <span class="post-meta">{{ post.date | date: date_format }}</span>
+          <h2>
+            <a class="post-link" href="{{ post.url | absolute_url }}" title="{{ post.title }}">{{ post.title | escape }}</a>
+          </h2>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+
+
+  <h1>Linux: Command & Tool</h1>
+  <ul class="post-list">
+    {% for post in site.posts %}
+      {% if post.path contains 'Linux_posts'%}
+        <li>
+          {% assign date_format = site.cayman-blog.date_format | default: "%b %-d, %Y" %}
+          <span class="post-meta">{{ post.date | date: date_format }}</span>
+          <h2>
+            <a class="post-link" href="{{ post.url | absolute_url }}" title="{{ post.title }}">{{ post.title | escape }}</a>
+          </h2>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+
+
+  <h1>Deep Learning in Python: PyTorch & TensorFlow</h1>
+  <ul class="post-list">
+    {% for post in site.posts %}
+      {% if post.path contains 'Python_posts'%}
+        <li>
+          {% assign date_format = site.cayman-blog.date_format | default: "%b %-d, %Y" %}
+          <span class="post-meta">{{ post.date | date: date_format }}</span>
+          <h2>
+            <a class="post-link" href="{{ post.url | absolute_url }}" title="{{ post.title }}">{{ post.title | escape }}</a>
+          </h2>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+
 
 </div>

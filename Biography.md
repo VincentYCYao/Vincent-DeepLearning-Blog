@@ -7,7 +7,46 @@ ref: Biography
 order: 0
 ---
 
-I am currently a Research Assistant, working in Department of Imaging and Interventional Radiology, Prince of Wales Hospital / The Chinese University of Hong Kong.
 
-My research interest is the application of deep learning in medical imaging.
+
+# Research Interest
+
+* Deep Learning
+  * the application in medical imaging
+  * model interpretability
+* Neuroscience
+* Neuroimaging
+
+# Education
+
+* 2018-2020: **MPhil** in Imaging & Interventional Radiology, The Chinese University of Hong Kong (CUHK)
+* 2013-2017: **BEng** in Biomedical Engineering, South China University of Technology (SCUT)
+
+# Working Experience
+
+* 2020 - current: **Research Assistant**, Department of Imaging & Interventional Radiology, Prince of Wales Hospital / The Chinese University of Hong Kong
+* 2017-2018: **Junior Research Assistant**, Department of Medicine & Therapeutics, Prince of Wales Hospital / The Chinese University of Hong Kong
+
+# Publications
+
+* Liang,Y.,**Yao,Y.C.**,Zhao,L.,Shi,L.,Chen,Y.K.,Mok,V.C.,...&Tang,W.K.(2020).Topological reorganization of the default mode network in patients with poststroke depressive symptoms: A resting-state fMRI study. Journal of affective disorders, 260, 557-568.
+* Lu,X.,Yang,Y.,Wu,F.,Gao,M.,Xu,Y.,Zhang,Y.,**Yao,Y.C**,...&Zhong,X.(2016).Discriminativeanalysisof schizophrenia using support vector machine and recursive feature elimination on structural MRI images. Medicine, 95(30).
+
+# Conference
+
+* The 17th International Conference on Biomedical Engineering (ICBME 2019), Singapore, **oral presentation**
+
+# Scholarship
+
+* The Keyuan Scholarship (2016), South China University of Technology (SCUT)
+* The Longsun Scholarship (2015), South China University of Technology (SCUT)
+* The Dow Scholarship (2014), South China University of Technology (SCUT)
+
+# Contact
+
+**Email:** yao_yongcheng@link.cuhk.edu.hk
+
+**GitHub:** [VincentYCYao](https://github.com/VincentYCYao)
+
+**Medium:** [VincentYCYao](https://medium.com/@vincentycyao)
 
