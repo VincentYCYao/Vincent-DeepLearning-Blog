@@ -5,9 +5,9 @@ date:   2020-08-24 16:00:00 +0800
 categories: Server
 ---
 
-# Move home directory to a new disk
 
-## Step 1. Identify the device to-be-mounted
+
+# Step 1. Identify the device to-be-mounted
 
 **Check the mounted disk:**
 
@@ -34,7 +34,7 @@ In this example, the device `/dev/sda1` has not been mount. We will move our `/h
 
 
 
-## Step 2. Backup home folder
+# Step 2. Backup home folder
 
 **Create a temporary home folder**
 
@@ -95,7 +95,7 @@ sudo mount /dev/sda1 /home
 
 
 
-## Step 3. Mount the new disk permanently
+# Step 3. Mount the new disk permanently
 
 **Get the partition UUID**
 

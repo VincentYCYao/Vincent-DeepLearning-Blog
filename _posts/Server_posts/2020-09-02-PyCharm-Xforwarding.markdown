@@ -7,7 +7,7 @@ categories: server
 
 OS: Ubuntu 18
 
-#### Background
+# Background
 
 For deep learning research, we want to fully utilize the computing power of GPUs for our model training. One simple scenario is that we want to test our algorithm to ensure that it can run on GPUs. We can also easily develop our code that controls the data type and data communication between CPU and GPU within a GPU-environment. 
 
@@ -20,7 +20,7 @@ There are many approaches to test your code in a remote remote environment.
 
 **NOTE:**  Though Pycharm-professional is not for free, you can apply for free usage of the professional version using the university email. 
 
-####  X11-forwarding
+#  X11-forwarding
 
 **X11-forwarding** enables you to launch a GUI-based application from a remote machine. To utilize the X11-forwarding feature, you have to feed the `-X` tag to ssh command when you login to the  remote machine. For example:
 
@@ -30,16 +30,16 @@ ssh -X <user-name>@<ip> -p <port-num>
 
 Enable X11-forwarding: edit the `/etc/ssh/sshd.config` on remote machine
 
-#### PyCharm
+# PyCharm
 
-Installation
+## Installation
 
 ```bash
 # Install pycharm-community
 sudo snap install pycharm-community --classic
 ```
 
-Configure and launch pycharm
+## Configure and launch pycharm
 
 ```bash
 # find the path, it should be sth. like </snap/bin/pycharm-community>
@@ -58,6 +58,8 @@ pycharm-community
 * check the hostname from the terminal
 * rename the configurations on the top-right corner, e.g. “xxx-Server”
 
+## PyCharm plugins
+
 Explore the pycharm plugins, you’ll find your love. Here are what I am using:
 
 * IdeaVim: Vim emulator that support vim features
@@ -69,8 +71,7 @@ Explore the pycharm plugins, you’ll find your love. Here are what I am using:
 * Markdown
 * TeXiFy IDEA
 
-
-#### Conda
+# Conda
 
 First thing first, whenever you create a new python project, the most important step is setting up the python interpreter. Using the python interpreter of your virtual enviornment is recommended, which can separate the develop enviroments for each of your project. 
 

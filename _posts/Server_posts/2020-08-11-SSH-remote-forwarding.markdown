@@ -7,8 +7,6 @@ categories: linux
 
 
 
-# SSH remote forwarding: access internal resources from outside
-
 *Reference: [ssh port forwarding](https://www.ssh.com/ssh/tunneling/example)*
 
 **Senario: A machine with static IP can serve as a jump server to access other servers within intranet.** 
@@ -21,7 +19,7 @@ categories: linux
 
 Hereafter,  `server-B` = **remote server**, `server-A` = **local server**.
 
-## Step1: configure ssh deamon on local server
+# Step1: configure ssh deamon on local server
 
 Install ssh-host on local server  -- `server-A`
 
@@ -48,7 +46,7 @@ PubkeyAuthentication yes
 AuthorizedKeysFile      .ssh/authorized_keys
 ```
 
-## Step2: longin to remote server
+# Step2: longin to remote server
 
 Install ssh-host on remote server  -- `server-B`
 
@@ -73,7 +71,7 @@ Login to remote server — either physically access or ssh login from the same i
 ssh -p <port-on-server-B> admin@<some-internal-ip>
 ```
 
-## Step3: create a tunnel from remote server
+# Step3: create a tunnel from remote server
 
 Generate private-publish key pair (we use `521-bits ecdsa` algorithm here) on remote server — `server-B`
 
@@ -143,7 +141,7 @@ Start `autossh`
 sudo systemctl start autossh
 ```
 
-## Step4: access remote server from local server
+# Step4: access remote server from local server
 
 on local server, type:
 
