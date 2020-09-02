@@ -2,7 +2,7 @@
 layout: post
 title:  "Move home directory to a new disk"
 date:   2020-08-24 16:00:00 +0800
-categories: Server
+categories: server
 ---
 
 

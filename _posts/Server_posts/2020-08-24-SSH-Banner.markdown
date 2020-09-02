@@ -2,7 +2,7 @@
 layout: post
 title:  "Add a banner shown before ssh login"
 date:   2020-08-24 16:30:00 +0800
-categories: Server
+categories: server
 ---
 
 

@@ -2,7 +2,7 @@
 layout: post
 title:  "Vimpager: pager using vim and less.vim"
 date:   2020-08-19 20:50:00 +0800
-categories: Linux
+categories: linux
 ---
 
 
