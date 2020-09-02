@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "PyCharm & X-forwarding: set up remote developing environment"
+title:  “PyCharm & Conda & X11-forwarding: set up remote developing environment"
 date:   2020-09-02 18:45:00 +0800
 categories: server
 ---
@@ -15,20 +15,20 @@ There are many approaches to test your code in a remote remote environment.
 
 * VSC: the ssh-terminal feature (on local machine, with GUI)
 * PyCharm-Professional: the ssh-terminal feature (on local machine, with GUI)
-* **PyCharm-Community + X-forwarding**: free (launch on remote machine and display on local machine, with GUI)
+* **PyCharm-Community + X11-forwarding**: free (launch on remote machine and display on local machine, with GUI)
 * python debug command (on remote machine, without GUI)
 
 **NOTE:**  Though Pycharm-professional is not for free, you can apply for free usage of the professional version using the university email. 
 
-####  X-forwarding
+####  X11-forwarding
 
-**X-forwarding** enables you to launch a GUI-based application from a remote machine. To utilize the X-forwarding feature, you have to feed the `-X` tag to ssh command when you login to the  remote machine. For example:
+**X11-forwarding** enables you to launch a GUI-based application from a remote machine. To utilize the X11-forwarding feature, you have to feed the `-X` tag to ssh command when you login to the  remote machine. For example:
 
 ```
 ssh -X <user-name>@<ip> -p <port-num>
 ```
 
-Enable X-forwarding: edit the `/etc/ssh/sshd.config` on remote machine
+Enable X11-forwarding: edit the `/etc/ssh/sshd.config` on remote machine
 
 #### PyCharm
 
@@ -58,7 +58,19 @@ pycharm-community
 * check the hostname from the terminal
 * rename the configurations on the top-right corner, e.g. “xxx-Server”
 
-#### Virtual Environment
+Explore the pycharm plugins, you’ll find your love. Here are what I am using:
+
+* IdeaVim: Vim emulator that support vim features
+* Terminal: provides integrated terminal
+* Machine Learning Code Completion
+* Material Theme UI: recomend the “Dracula” theme
+* Git
+* GitHub
+* Markdown
+* TeXiFy IDEA
+
+
+#### Conda
 
 First thing first, whenever you create a new python project, the most important step is setting up the python interpreter. Using the python interpreter of your virtual enviornment is recommended, which can separate the develop enviroments for each of your project. 
 
@@ -82,17 +94,4 @@ conda install pandas
 ```
 
 **Caveate:** Remenber to choose a virtual environment for your pycharm project. Go to` Setting > Project: > Python Interpreter > show all > click '+' to select your virtual env`
-
-#### PyCharm Plugins
-
-Explore the pycharm plugins, you’ll find your love. Here are what I am using:
-
-* IdeaVim: Vim emulator that support vim features
-* Terminal: provides integrated terminal
-* Machine Learning Code Completion
-* Material Theme UI: recomend the “Dracula” theme
-* Git
-* GitHub
-* Markdown
-* TeXiFy IDEA
 
