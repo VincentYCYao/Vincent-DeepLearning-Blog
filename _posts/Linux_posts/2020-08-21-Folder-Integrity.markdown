@@ -68,7 +68,7 @@ Trust other developers’ works while be caution to the usage of command. As lon
 man rsync
 ```
 
-# **Calculate the checksum**
+# Calculate the checksum
 
 If you really want to make sure that the backup folder is identical to the original one, you can try MD5 algorithm with `md5sum`, SHA-2 algorithm with `sha224sum`, `sha256sum`, `sha384sum`, `sha512sum`, or BLAKE2  algorithm with `b2sum`. 
 
