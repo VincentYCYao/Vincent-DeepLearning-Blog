@@ -7,13 +7,9 @@ categories: Linux
 
 
 
-
-
-# Dracura: an amazing theme
-
 To begin a pleasant journey on linux system and command line, a beautiful color scheme for terminal emulator can not only give you visual enjoyment, but also improvement of your working efficiency. The colorized output would help you partitiont your command in just a glance, making the code more readable. Visual simulation always helps us think and act fast.
 
-## Dracura for gnome terminal
+# Dracura for gnome terminal
 
 Reference: [Dracura Theme for Gnome Terminal](https://draculatheme.com/gnome-terminal/)
 
@@ -27,7 +23,7 @@ cd gnome-terminal
 rm -r gnome-terminal
 ```
 
-## Dracura for macOS terminal
+# Dracura for macOS terminal
 
 Reference: [Dracura Theme for Terminal.app](https://draculatheme.com/terminal)
 
@@ -45,7 +41,7 @@ git clone https://github.com/dracula/terminal-app.git
 4. Select the `Dracula.terminal` file
 5. Click *Default*
 
-## Dracura for Vim
+# Dracura for Vim
 
 Reference: [Dracura for Vim](https://draculatheme.com/vim)
 

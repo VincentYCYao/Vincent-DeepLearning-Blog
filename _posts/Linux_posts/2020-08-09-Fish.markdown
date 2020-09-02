@@ -7,11 +7,11 @@ categories: linux
 
 
 
-#  Fish: the friendly interactive shell
+
 
  [`Fish`](https://fishshell.com) is a smart and user-friendly command line shell for Linux, macOS, and the rest of the family. 
 
-## Installation
+# Installation
 
 On macOS:
 
@@ -35,9 +35,9 @@ Other platforms: https://fishshell.com
 
 
 
-## Features
+# Features
 
-### Autosuggestions
+## Autosuggestions
 
 `Fish`'s autosuggestion function is the best I have ever encountered! You’ll love it! No configuration is needed.
 
@@ -47,7 +47,7 @@ It knows ablout paths, options, command history.
 * To accept a single word of the autosuggestion, `Alt+→` (right arrow). 
 * To see more suggestions, hit `Tab`
 
-### Manual page completions
+## Manual page completions
 
 Fish generates completions automatically by parsing your installed man pages.
 
@@ -68,7 +68,7 @@ hit `Tab` whenever you want to choose an option from a list
 …and 101 more rows
 ```
 
-### Web based configuration
+## Web based configuration
 
 > For those lucky few with a graphical computer, you can set your colors and view functions, variables, and history all from a web page.
 
@@ -76,19 +76,19 @@ hit `Tab` whenever you want to choose an option from a list
 fish_config
 ```
 
-### Syntax highlighting
+## Syntax highlighting
 
 You'll quickly notice that `fish` performs syntax highlighting as you type. Invalid commands are colored red by default. A command may be invalid because it does not exist, or refers to a file that you cannot execute. When the command becomes valid, it is shown in a different color.
 
 
 
-## Commands
+# Commands
 
 The [tutorial pag](https://fishshell.com/docs/current/tutorial.html)e is a good start to learn `fish`.
 
 To learn more about `fish`, check the [fish documentation page](https://fishshell.com/docs/current/index.html#intro)
 
-### Variables
+## Variables
 
 ```
 # set variable
@@ -97,7 +97,7 @@ set <var_name> <value>
 set -e <var_name>
 ```
 
-### Exports shell variables
+## Exports shell variables
 
 Sometimes you need to have a variable available to an external command, often as a setting. For example many programs like git or man read the `$PAGER` variable to figure out your preferred pager (the program that lets you scroll text). Other variables used like this include ​`$BROWSER`, `$LANG` (to configure your language) and ​`$PATH`. You'll note these are written in `ALLCAPS`, but that's just a convention.
 
@@ -111,7 +111,7 @@ MyVariable=SomeValue
 
 * **Unexport:** `set` with option either `--unexport` or just `-u`.
 
-### Command substitutions
+## Command substitutions
 
 Command substitutions use the output of one command as an argument to another. `fish` uses parentheses for this purpose
 
@@ -120,7 +120,7 @@ Command substitutions use the output of one command as an argument to another. `
 In /home/vincent, running Linux
 ```
 
-### Function definition & autoloading
+## Function definition & autoloading
 
 * **Fish function definition:** A `fish` function is a list of commands, which may optionally take arguments. Unlike other shells, arguments are not passed in "numbered variables" like `$1`, but instead in a single list `$argv`. To create a function, use the `function` builtin:
 
@@ -152,7 +152,7 @@ alias, cd, delete-or-exit, dirh, dirs, down-or-search, eval, export, fish_comman
 
 * **Autoloading functions**: When `fish` encounters a command, it attempts to autoload a function for that command, by looking for a file with the name of that command in `~/.config/fish/functions/`.
 
-### Loops
+## Loops
 
 Iterate over a list
 
@@ -180,7 +180,7 @@ While loop
   end
 ```
 
-### $PATH
+## $PATH
 
 `$PATH` is an environment variable containing the directories that `fish` searches for commands. 
 
@@ -202,7 +202,7 @@ Remove path `/usr/sbin` from `$PATH`:
 set PATH (string match -v /usr/sbin $PATH)
 ```
 
-### Fish’s startup configuration (equivalent to /.bashrc)
+## Fish’s startup configuration (equivalent to /.bashrc)
 
 `fish` starts by executing commands in `~/.config/fish/config.fish`. You can create it if it does not exist.
 
@@ -218,7 +218,7 @@ function ll
 end
 ```
 
-### Universal Variables
+## Universal Variables
 
 A universal variable is a variable whose value is shared across all instances of `fish`, now and in the future – even after a reboot. You can make a variable universal with `set -U`:
 
@@ -226,7 +226,9 @@ A universal variable is a variable whose value is shared across all instances of
 set -U EDITOR vim
 ```
 
-### Switch to fish
+
+
+# Switch to fish
 
 Add the fish shell `/usr/local/bin/fish` to `/etc/shells` with:
 

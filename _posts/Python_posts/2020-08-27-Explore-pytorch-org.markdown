@@ -7,20 +7,18 @@ categories: python
 
 
 
-# Explore the pytorch.org
-
 The [official site of PyTorch](https://pytorch.org) is elegantly designed to provide useful information categorized into the following groups: get started, blog, tutorials, and Docs. 
 
 Below are the resources I am interested in.
 
-## Blogs
+# Blogs
 
 * [PyTorch 1.6 now includes Stochastic Weight Averaging](https://pytorch.org/blog/pytorch-1.6-now-includes-stochastic-weight-averaging/)
 * [Introducing native PyTorch automatic mixed precision for faster training on NVIDIA GPUs](https://pytorch.org/blog/accelerating-training-on-nvidia-gpus-with-pytorch-automatic-mixed-precision/)
 * [Introduction to Quantization on PyTorch](https://pytorch.org/blog/introduction-to-quantization-on-pytorch/)
 
+# Recipes
 
-## Recipes
 Recipes with tag `Basic`would be a good start. Below are recommended recipes:
 
 * (Recommended) **Saving and loading**
@@ -51,8 +49,7 @@ Recipes with tag `Basic`would be a good start. Below are recommended recipes:
 * **Interpretability**
   * [model interpretability using Captum](https://pytorch.org/tutorials/recipes/recipes/Captum_Recipe.html)
 
-
-## Advance Tutorials
+# Advance Tutorials
 
 * **Distributed training**
   * [PyTorch distributed overview](https://pytorch.org/tutorials/beginner/dist_overview.html)

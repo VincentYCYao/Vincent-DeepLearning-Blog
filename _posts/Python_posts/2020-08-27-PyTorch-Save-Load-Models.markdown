@@ -7,7 +7,7 @@ categories: python
 
 
 
-## 1. Introduction: state-dict  in PyTorch
+# 1. Introduction: state-dict  in PyTorch
 
 Reference: [WHAT IS A STATE_DICT IN PYTORCH](https://pytorch.org/tutorials/recipes/recipes/what_is_state_dict.html)
 
@@ -32,7 +32,7 @@ for var_name in optimizer.state_dict():
     print(var_name, "\t", optimizer.state_dict()[var_name])
 ```
 
-## 2. Save and load a model
+# 2. Save and load a model
 
 Reference: [SAVING AND LOADING MODELS FOR INFERENCE IN PYTORCH](https://pytorch.org/tutorials/recipes/recipes/saving_and_loading_models_for_inference.html)
 
@@ -44,7 +44,7 @@ Two ways of saving models in Pytorch:
   * Advantage: yields the most intuitive syntax and involves the least amount of code
   * Disadvantage: the serialized data is bound to the specific classes and the exact directory structure used when the model is saved —  **your code can break in various ways when used in other projects or after refactors**
 
-###  2.1 Save and load a model with via `state_dict`
+##  2.1 Save and load a model with via `state_dict`
 
 * A common PyTorch convention is to save models using either a `.pt` or `.pth` file extension
 * Remember too, that you must call `model.eval()` to set **dropout** and **batch normalization layers** to evaluation mode before running inference. Failing to do this will yield inconsistent inference results.
@@ -62,7 +62,7 @@ model.load_state_dict(torch.load(PATH))
 model.eval()
 ```
 
-## 3. Save and load a general checkpoint
+# 3. Save and load a general checkpoint
 
 Saving and loading a general checkpoint model for **inference or resuming training** can be helpful for picking up where you last left off. When saving a general checkpoint, you must save the followings:
 
@@ -74,7 +74,7 @@ Saving and loading a general checkpoint model for **inference or resuming traini
   * **external `torch.nn.Embedding` layers**
   * ...
 
-### 3.1 General introduction
+## 3.1 General introduction
 
 To save multiple checkpoints, you must organize them in a dictionary and use `torch.save()` to serialize the dictionary. A common PyTorch convention is to save these checkpoints using the `.tar` file extension. 
 
@@ -83,7 +83,7 @@ To load the items:
 1. first initialize the model and optimizer, 
 2. then load the dictionary locally using `torch.load()`
 
-###  3.2 Save the general checkpoint
+##  3.2 Save the general checkpoint
 
 ```python
 # Additional information
@@ -99,7 +99,7 @@ torch.save({
             }, PATH)
 ```
 
-###  3.3 Load the general checkpoint
+##  3.3 Load the general checkpoint
 
 **Reminder:** Remember to first initialize the model and optimizer, then load the dictionary locally.
 
@@ -120,13 +120,13 @@ model.eval()
 model.train()
 ```
 
-## 4. Save and load multiple models in one file
+# 4. Save and load multiple models in one file
 
 When saving a model comprised of multiple `torch.nn.Modules`, such as a GAN, a sequence-to-sequence model, or an ensemble of models, you must save a dictionary of each model’s state_dict and corresponding optimizer. You can also save any other items that may aid you in resuming training by simply appending them to the dictionary. 
 
 To load the models, first initialize the models and optimizers, then load the dictionary locally using `torch.load()`. From here, you can easily access the saved items by simply querying the dictionary as you would expect. In this recipe, we will demonstrate how to save multiple models to one file using PyTorch.
 
-### 4.1 Save multiple models
+## 4.1 Save multiple models
 
 ```python
 # assuming the class Net() has been defined
@@ -147,7 +147,7 @@ torch.save({
             }, PATH)
 ```
 
-### 4.2 Load multiple models
+## 4.2 Load multiple models
 
 ```python
 # initialze model and optimizer

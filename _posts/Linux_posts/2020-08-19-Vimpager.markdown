@@ -7,19 +7,15 @@ categories: Linux
 
 
 
-
-
-# Vimpager: pager using vim and less.vim
-
 *reference: [vimpager](https://github.com/rkitover/vimpager)*
 
-## Synopsis
+# Synopsis
 
 ```bash
 vimpager [options] <some file>
 ```
 
-## Install
+# Install
 
 On Ubuntu or Debian, use the following to install a package:
 

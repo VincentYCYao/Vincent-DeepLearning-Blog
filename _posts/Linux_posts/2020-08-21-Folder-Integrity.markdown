@@ -5,11 +5,11 @@ date:   2020-08-21 16:40:00 +0800
 categories: linux
 ---
 
-#  Check the integrity of backup folder
+
 
 **Caveate**: Don’t rely on direct comparison of disk usage or file size. Note first that the disk usage is not the same as file size. 
 
-## **Disk usage**
+# Disk usage
 
 Depending on the partition scheme and file system type, two exact same folders may have different disk usage. Data are stored in blocks of the disk, so the minimal storage unit is block. The block size may be different for various file system and partition type. Therefore, a file with actual file size smaller than a block size will occupy the whole bolck. Thus, such small file will has different disk usage on two disk with different block size. 
 
@@ -47,7 +47,7 @@ Blocks per group:         32768
 
 The block size is 4098 bytes = 4 KB.
 
-## **File size**
+# File size
 
 The actual file size can be inspected by `du`.
 
@@ -68,7 +68,7 @@ Trust other developers’ works while be caution to the usage of command. As lon
 man rsync
 ```
 
-## **Calculate the checksum**
+# **Calculate the checksum**
 
 If you really want to make sure that the backup folder is identical to the original one, you can try MD5 algorithm with `md5sum`, SHA-2 algorithm with `sha224sum`, `sha256sum`, `sha384sum`, `sha512sum`, or BLAKE2  algorithm with `b2sum`. 
 

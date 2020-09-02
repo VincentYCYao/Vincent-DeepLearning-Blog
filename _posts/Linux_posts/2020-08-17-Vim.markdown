@@ -2,12 +2,10 @@
 layout: post
 title:  "Vim: the ubiquitous text editor"
 date:   2020-08-17 20:10:00:00 +0800
-categories: Linux
+categories: linux
 ---
 
 
-
-#  Vim: the ubiquitous text editor
 
 The best way to learn `vim` is entering `vim` and type `:help`.
 
@@ -15,9 +13,9 @@ For quick tutorial, type `vimtutor` in command line. The followings are based on
 
 
 
-## Brief tutorial
+# Brief tutorial
 
-###  Lesson 1 SUMMARY
+##  Lesson 1 SUMMARY
 
 1. The cursor is moved using either the arrow keys or the hjkl keys: 
    *  `h (left)       j (down)       k (up)       l (right)`
@@ -34,7 +32,7 @@ For quick tutorial, type `vimtutor` in command line. The followings are based on
 
 
 
-### Lesson 2 SUMMARY
+## Lesson 2 SUMMARY
 
 1. To delete from the cursor up to the next word type:    `dw`
 2. To delete from the cursor to the end of a line type:    `d$`
@@ -52,7 +50,7 @@ For quick tutorial, type `vimtutor` in command line. The followings are based on
 
 
 
-###  Lesson 3 SUMMARY
+##  Lesson 3 SUMMARY
 
 
 1. To put back text that has just been deleted, type `p`.  This puts the deleted text AFTER the cursor (if a line was deleted it will go on the line below the cursor)
@@ -64,8 +62,7 @@ For quick tutorial, type `vimtutor` in command line. The followings are based on
 
 
 
-
-### Lesson 4 SUMMARY
+## Lesson 4 SUMMARY
 
 
 1. Move aroung the cursor:
@@ -91,7 +88,7 @@ For quick tutorial, type `vimtutor` in command line. The followings are based on
 
 
 
-###   Lesson 5 SUMMARY
+##   Lesson 5 SUMMARY
 
 1. `:!`  executes an external command.
 2. `:w FILENAME ` writes the current Vim file to disk with name FILENAME.
@@ -101,7 +98,7 @@ For quick tutorial, type `vimtutor` in command line. The followings are based on
 
 
 
-###   Lesson 6 SUMMARY
+##   Lesson 6 SUMMARY
 
 1. Open a new line:
 	* Type  `o`  to open a line BELOW the cursor and start Insert mode
@@ -121,7 +118,7 @@ For quick tutorial, type `vimtutor` in command line. The followings are based on
 
 
 
-### Lesson 7 SUMMARY
+## Lesson 7 SUMMARY
 
 1. Type  `:help`  or press <F1> or <HELP>  to open a help window.
 2. Type  `:help cmd`  to find help on  cmd .

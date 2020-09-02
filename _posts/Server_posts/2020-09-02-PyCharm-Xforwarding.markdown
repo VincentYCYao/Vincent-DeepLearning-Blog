@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  “PyCharm & Conda & X11-forwarding: set up remote developing environment"
+title:  “PyCharm, Conda, X11-forwarding: set up remote developing environment"
 date:   2020-09-02 18:45:00 +0800
 categories: server
 ---
@@ -32,14 +32,14 @@ Enable X11-forwarding: edit the `/etc/ssh/sshd.config` on remote machine
 
 # PyCharm
 
-## Installation
+ **Installation**
 
 ```bash
 # Install pycharm-community
 sudo snap install pycharm-community --classic
 ```
 
-## Configure and launch pycharm
+**Configure and launch pycharm**
 
 ```bash
 # find the path, it should be sth. like </snap/bin/pycharm-community>
@@ -58,7 +58,7 @@ pycharm-community
 * check the hostname from the terminal
 * rename the configurations on the top-right corner, e.g. “xxx-Server”
 
-## PyCharm plugins
+**PyCharm plugins**
 
 Explore the pycharm plugins, you’ll find your love. Here are what I am using:
 

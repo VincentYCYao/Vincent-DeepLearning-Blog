@@ -5,7 +5,7 @@ date:   2020-08-27 06:00:00 +0800
 categories: python
 ---
 
-# Learn PyTorch: my steps into the PyTorch world
+
 
 **Background Knowledge on deep learning:**
 
@@ -15,15 +15,14 @@ CS231n is highly recommended, and you must finish the assignments to consolidate
 
 **PyTorch Version: 1.6.0**
 
-### 1. Setup Virtual environment
+# 1. Setup Virtual environment
 
 Reference: [Get start with Anaconda, PyTorch & CUDA](https://pytorch.org/get-started/locally/)
 
 * install anaconda and create a virtual environment (env)
 * (within env) install pytorch, CUDA, and dependencies
 
-
-### 2. Have a glance at PyTorch
+# 2. Have a glance at PyTorch
 
 Reference: [DEEP LEARNING WITH PYTORCH: A 60 MINUTE BLITZ](https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html) which includes 4 parts:
 
@@ -40,8 +39,7 @@ Reference: [DEEP LEARNING WITH PYTORCH: A 60 MINUTE BLITZ](https://pytorch.org/t
 
 **Note:** I first go through all the basic introductions ignoring the reference reading. Some simple concepts are introduced. Let’s do it within 60 min, yet try your best to understand. **Don't** read the [doc](https://pytorch.org/docs/stable/index.html) at this stage since it contains too much details which is not friendly to beginner.
 
-
-### 3. Learn simple PyTorch concepts
+# 3. Learn simple PyTorch concepts
 
 Reference: [LEARNING PYTORCH WITH EXAMPLES](https://pytorch.org/tutorials/beginner/pytorch_with_examples.html#examples-download)
 
@@ -58,7 +56,7 @@ Reference: [LEARNING PYTORCH WITH EXAMPLES](https://pytorch.org/tutorials/beginn
 * The `optim` package in PyTorch abstracts the idea of an **optimization algorithm** and provides implementations of commonly used optimization algorithms
 * You can **define your own Modules** by subclassing `nn.Module` and defining a `forward` which receives input Tensors and produces output Tensors using other modules or other autograd operations on Tensors
 
-### 4. *General data pipeline and training loop
+# 4. *General data pipeline and training loop
 
 Reference : [WHAT IS TORCH.NN *REALLY*?](https://pytorch.org/tutorials/beginner/nn_tutorial.html)    (View on GitHub: [nn_tutorial.py](https://github.com/pytorch/tutorials/blob/master/beginner_source/nn_tutorial.py))
 
@@ -68,7 +66,7 @@ From this tutorial, you will learn how to write a **general data pipeline** and 
 
 PyTorch provides the elegantly designed modules and classes [torch.nn](https://pytorch.org/docs/stable/nn.html) , [torch.optim](https://pytorch.org/docs/stable/optim.html) , [Dataset](https://pytorch.org/docs/stable/data.html?highlight=dataset#torch.utils.data.Dataset) , and [DataLoader](https://pytorch.org/docs/stable/data.html?highlight=dataloader#torch.utils.data.DataLoader) to help you create and train neural networks.
 
-#### 4.1 Define network structure: torch.nn.Module
+## 4.1 Define network structure: torch.nn.Module
 
 Reference: [nn.Module](https://pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module)
 
@@ -97,7 +95,7 @@ class Model(nn.Module):
         return F.relu(self.conv2(x))
 ```
 
-#### 4.2 Define network optimizer: torch.optim
+## 4.2 Define network optimizer: torch.optim
 
 Reference: [torch.optim](https://pytorch.org/docs/stable/optim.html#module-torch.optim)
 
@@ -126,13 +124,13 @@ opt.zero_grad()
 >
 > In general, you should make sure that **optimized parameters live in consistent locations when optimizers are constructed and used.**
 
-####  4.3 Import Data: TensorDataset, DataLoader & Wrapping DataLoader
+##  4.3 Import Data: TensorDataset, DataLoader & Wrapping DataLoader
 
 Reference: [TORCH.UTILS.DATA](https://pytorch.org/docs/stable/data.html#map-style-datasets)
 
 PyTorch has an abstract Dataset class. A Dataset can be anything that has a `__len__` function (called by Python’s standard `len` function) and a `__getitem__` function as a way of indexing into it.
 
-##### 4.3.1 torch.utils.data.TensorDataset
+### 4.3.1 torch.utils.data.TensorDataset
 
 * Dataset wrapping tensors
 
@@ -146,7 +144,7 @@ PyTorch has an abstract Dataset class. A Dataset can be anything that has a `__l
   xb,yb = train_ds[i*bs : i*bs+bs]
 ```
 
-##### 4.3.2 torch.utils.data.DataLoader
+### 4.3.2 torch.utils.data.DataLoader
 
 It represents a Python iterable over a dataset, with support for
 
@@ -185,7 +183,7 @@ train_ds = TensorDataset(x_train, y_train)
 train_dl = DataLoader(train_ds, batch_size=bs)
 ```
 
-##### 4.3.3 Wrapping DataLoader
+### 4.3.3 Wrapping DataLoader
 
 **create a get_data() to load train_ds and val_ds**
 
@@ -221,7 +219,7 @@ train_dl = WrappedDataLoader(train_dl, preprocess)
 valid_dl = WrappedDataLoader(valid_dl, preprocess)
 ```
 
-#### 4.4 Using GPU
+## 4.4 Using GPU
 
 **create a device object**
 
@@ -241,7 +239,7 @@ train_dl = WrappedDataLoader(train_dl, preprocess)
 valid_dl = WrappedDataLoader(valid_dl, preprocess)
 ```
 
-#### 4.5 Closing thoughts
+## 4.5 Closing thoughts
 
 We now have a general data pipeline and training loop which you can use for training many types of models using Pytorch. To see how simple training a model can now be, take a look at the mnist_sample sample notebook.
 
@@ -259,7 +257,7 @@ We promised at the start of this tutorial we’d explain through example each of
 
 
 
-### 5. Visualization PyTorch model with TensorBoard
+# 5. Visualization PyTorch model with TensorBoard
 
 Reference: 
 
