@@ -257,7 +257,7 @@ We promised at the start of this tutorial we’d explain through example each of
 
 
 
-# 5. Visualization PyTorch model with TensorBoard
+# 5. Visualize PyTorch model with TensorBoard
 
 Reference: 
 
