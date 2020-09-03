@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "PyCharm, Conda & X11-forwarding: set up remote developing environment"
+title:  "PyCharm, Conda & X11-forwarding: set up remote environment"
 date:   2020-09-02 18:45:00 +0800
 categories: server
 ---
