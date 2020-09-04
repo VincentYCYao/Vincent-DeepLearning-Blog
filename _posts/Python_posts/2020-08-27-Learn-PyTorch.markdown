@@ -128,6 +128,8 @@ opt.zero_grad()
 
 Reference: [TORCH.UTILS.DATA](https://pytorch.org/docs/stable/data.html#map-style-datasets)
 
+Recommended reading: [WRITING CUSTOM DATASETS, DATALOADERS AND TRANSFORMS](https://pytorch.org/tutorials/beginner/data_loading_tutorial.html)
+
 PyTorch has an abstract Dataset class. A Dataset can be anything that has a `__len__` function (called by Python’s standard `len` function) and a `__getitem__` function as a way of indexing into it.
 
 ### 4.3.1 torch.utils.data.TensorDataset
