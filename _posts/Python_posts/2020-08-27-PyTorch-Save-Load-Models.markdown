@@ -44,7 +44,7 @@ Two ways of saving models in Pytorch:
   * Advantage: yields the most intuitive syntax and involves the least amount of code
   * Disadvantage: the serialized data is bound to the specific classes and the exact directory structure used when the model is saved —  **your code can break in various ways when used in other projects or after refactors**
 
-##  2.1 Save and load a model with via `state_dict`
+##  2.1 Save and load a model via `state_dict`
 
 * A common PyTorch convention is to save models using either a `.pt` or `.pth` file extension
 * Remember too, that you must call `model.eval()` to set **dropout** and **batch normalization layers** to evaluation mode before running inference. Failing to do this will yield inconsistent inference results.
