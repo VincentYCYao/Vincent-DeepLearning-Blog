@@ -94,5 +94,5 @@ echo 'conda activate <env-name>' >> ~/.bashrc
 conda install pandas
 ```
 
-**Caveate:** Remenber to choose a virtual environment for your pycharm project. Go to` Setting > Project: > Python Interpreter > show all > click '+' to select your virtual env`
+**Caveat:** Remenber to choose a virtual environment for your pycharm project. Go to` Setting > Project: > Python Interpreter > show all > click '+' to select your virtual env`
 
