@@ -65,7 +65,7 @@ Explore the pycharm plugins, you’ll find your love. Here are what I am using:
 * IdeaVim: Vim emulator that support vim features
 * Terminal: provides integrated terminal
 * Machine Learning Code Completion
-* Material Theme UI: recomend the “Dracula” theme
+* Material Theme UI: recommend the “Dracula” theme
 * Git
 * GitHub
 * Markdown
