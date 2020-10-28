@@ -16,4 +16,6 @@ order: 2
   * Official website: [facebookresearch/OctConv](https://github.com/facebookresearch/OctConv)
   * My implementation in Keras: [VincentYCYao/OctConv-TransOctConv-Keras](https://github.com/VincentYCYao/OctConv-TransOctConv-Keras)
 * **MVC-Net**
+  * Paper: [Automated comprehensive Adolescent Idiopathic Scoliosis assessment using MVC-Net](https://www.sciencedirect.com/science/article/pii/S1361841518302871)
+  * My implementation in PyTorch: [VincentYCYao/MVC-Net-pytorch](https://github.com/VincentYCYao/MVC-Net-pytorch)
 
