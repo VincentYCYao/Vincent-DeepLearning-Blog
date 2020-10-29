@@ -27,7 +27,8 @@ order: 2
 
 Drafting a journel paper...
 
-**My Contributions**
+**Contributions**
+
 * Conceptualization
 * Data acquisition
 * Data analysis
@@ -41,7 +42,7 @@ Functional Magnetic Resonance Imaging has been widely used to investigate the ac
 **Results**
 To be added after paper publication.
 
-**A Glance at the forthcoming paper**
+**A glance at the forthcoming paper**
 ![](png/AD_Figures.png)
 
 
@@ -53,7 +54,8 @@ To be added after paper publication.
 **Paper**
 [Liang, Y., **Yao, Y. C.**, Zhao, L., Shi, L., Chen, Y. K., Mok, V. C., ... & Tang, W. K. (2020). Topological reorganization of the default mode network in patients with poststroke depressive symptoms: A resting-state fMRI study. *Journal of Affective Disorders*, *260*, 557-568.](https://www.sciencedirect.com/science/article/pii/S0165032719302915)
 
-**My Contributions**
+**Contributions**
+
 * Data analysis
 * Data visualization
 * Interpretation of results from a mathematical perspective
