@@ -29,9 +29,19 @@ order: 2
 
 Drafting a journel paper...
 
+**My Contributions**
+
+* Conceptualization
+* Data acquisition
+
+* Data analysis
+* Data visualization
+* Interpretation of results
+* Paper writting & proofreading
+
 **Objectives**
 
-To be added...
+Functional Magnetic Resonance Imaging has been widely used to investigate the activity of human brain. The relationships between abnormal functional properties and neurodegenerative disease have been reported. In this study, the differences of functional brain network between normal controls and subjects with Alzheimer’s Disease (AD) are investigated.
 
 **Results**
 
@@ -50,6 +60,14 @@ To be added after paper publication.
 **Paper**
 
 [Liang, Y., **Yao, Y. C.**, Zhao, L., Shi, L., Chen, Y. K., Mok, V. C., ... & Tang, W. K. (2020). Topological reorganization of the default mode network in patients with poststroke depressive symptoms: A resting-state fMRI study. *Journal of Affective Disorders*, *260*, 557-568.](https://www.sciencedirect.com/science/article/pii/S0165032719302915)
+
+**My Contributions**
+
+* Data analysis
+* Data visualization
+* Interpretation of results from a mathematical perspective
+* Drafting the paper (technical part)
+* Paper proofreading
 
 **Objectives**
 
