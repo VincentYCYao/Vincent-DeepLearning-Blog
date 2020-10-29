@@ -37,7 +37,9 @@ To be added...
 
 To be added after paper publication.
 
+**A Glance at the forthcoming paper**
 
+![](png/AD_Figures.png)
 
 
 
@@ -49,23 +51,23 @@ To be added after paper publication.
 
 [Liang, Y., **Yao, Y. C.**, Zhao, L., Shi, L., Chen, Y. K., Mok, V. C., ... & Tang, W. K. (2020). Topological reorganization of the default mode network in patients with poststroke depressive symptoms: A resting-state fMRI study. *Journal of Affective Disorders*, *260*, 557-568.](https://www.sciencedirect.com/science/article/pii/S0165032719302915)
 
-**Objectives:** 
+**Objectives**
 
 This study mapped the topological configuration of the default mode network (DMN) in patients with depressive symptoms after acute ischemic stroke.
 
-**Methods:** 
+**Methods** 
 
 * Subjects: 36 with poststroke depressive symptoms (PSD) and 37 without PSD. 
 * Resting-state functional magnetic resonance imaging (fMRI) was used to examine **functional connectivity (FC)** to reconstruct the DMN. 
 * **Network based statistics** estimated the FC differences of the DMN between the PSD and non-PSD groups. 
 * **Graph theoretical approaches** were used to characterize the topological properties of this network.
 
-**Results:** 
+**Results** 
 
 * A widespread hyper-connected configuration of the functional DMN was characterized in PSD group. The orbital frontal, dorsolateral prefrontal, dorsal medial prefrontal, and ventromedial prefrontal cortices, the middle temporal gyrus, and the inferior parietal lobule were the **functional hubs** related to PSD. 
 * The **nodal topology** in inferior parietal lobule and superior frontal gyrus, overlapping with dorsal medial prefrontal and ventromedial prefrontal cortices, tended to be functionally integrated in patients with PSD. 
 
-**Conclusions:** 
+**Conclusions** 
 
 The DMN in PSD was functionally integrated and more specialized in some core hubs such as the inferior parietal lobule and dorsal prefrontal cortex.
 
