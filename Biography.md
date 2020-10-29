@@ -25,8 +25,8 @@ order: 0
 
 # Working Experience
 
-* 2020 - current: **Research Assistant**, Department of Imaging & Interventional Radiology, Prince of Wales Hospital / The Chinese University of Hong Kong
-* 2017-2018: **Junior Research Assistant**, Department of Medicine & Therapeutics, Prince of Wales Hospital / The Chinese University of Hong Kong
+* 2020 - current: **Research Assistant**, Department of Imaging & Interventional Radiology (Prince of Wales Hospital), Faculty of Medicine, The Chinese University of Hong Kong
+* 2017-2018: **Junior Research Assistant**, Department of Medicine & Therapeutics (Prince of Wales Hospital), Faculty of Medicine, The Chinese University of Hong Kong
 
 # Publications
 
@@ -46,9 +46,25 @@ order: 0
 
 # Contact
 
+---
+
+Mr. Yongcheng YAO 
+
+[*Department of Imaging & Interventional Radiology*](http://www.diir.cuhk.edu.hk)
+
+[*Faculty of Medicine*](https://www.cuhk.edu.hk/english/faculties/medicine.html)
+
+[*The Chinese University of Hong Kong*](https://www.cuhk.edu.hk/english/index.html)
+
+---
+
 **Email:** yao_yongcheng@link.cuhk.edu.hk
+
+**ResearchGate:** [Yongcheng Yao](https://www.researchgate.net/profile/Yongcheng_Yao)
 
 **GitHub:** [VincentYCYao](https://github.com/VincentYCYao)
 
 **Medium:** [VincentYCYao](https://medium.com/@vincentycyao)
+
+
 
