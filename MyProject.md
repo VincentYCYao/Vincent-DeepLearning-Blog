@@ -19,6 +19,8 @@ order: 2
 
 
 
+
+
 ## (2019-2020) Altered Topological Properties and Functional Connectivity Correlated with Alzheimer’s Disease
 
 *(This work was done during my MPhil program, and also the main part of my MPhil thesis.)*
@@ -37,6 +39,8 @@ To be added after paper publication.
 
 
 
+
+
 ## (2018-2019) Default Mode Network Reconfiguration in Patients with Poststroke Depressive Symptoms
 
 *(This work was done as part of my MPhil program, a collaborative clinical research project. Many thanks to Dr. Yan LIANG for her great effort.)*
@@ -52,6 +56,12 @@ To be added after paper publication.
 > **Results:** The study sample mainly comprised patients with mild to moderate stroke. A widespread hyper-con- nected configuration of the functional DMN was characterized in PSD group. The orbital frontal, dorsolateral prefrontal, dorsal medial prefrontal and, ventromedial prefrontal corticis, the middle temporal gyrus and the inferior parietal lobule were the functional hubs related to PSD. The nodal topology in inferior parietal lobule and superior frontal gyrus, overlapping with dorsal medial prefrontal and, ventromedial prefrontal cortices, tended to be functionally integrated in patients with PSD. After False Discovery Rate correction, no significant difference between the PSD and non-PSD groups was found with respect to the global and nodal metrics of the DMN. However, the correlations between these altered network metrics and severity of PSD were lacking. Limitations: The diagnosis of PSD was based on the GDS score rather than established with a structured clinical interview.
 >
 > **Conclusions:** The DMN in PSD was functionally integrated and more specialized in some core hubs such as the inferior parietal lobule and dorsal prefrontal cortex. The configuration of the subnetwork like DMN may be more essential in the pathogenesis of PSD than single stroke lesions.
+
+**Gallery**	
+
+![](png/PSD_Figures.png)
+
+
 
 # Network Implementation
 
