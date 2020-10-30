@@ -15,7 +15,7 @@ order: 2
 
 **Updates**
 
-* **[Oct 27 2020]** a prototype for automatic cartilage thickness quantification is under beta test, using both public MRI data from OAI and non-public data collected in Prince of Wales Hospital, N.T., Hong Kong
+* **[Oct 27 2020]** a prototype for automatic cartilage thickness quantification is under beta test, using both public MRI data from the [Osteoarthritis Initiative (OAI)](https://nda.nih.gov/oai/) and non-public data collected in Prince of Wales Hospital, N.T., Hong Kong
 
 
 
@@ -95,7 +95,6 @@ The DMN in PSD was functionally integrated and more specialized in some core hub
 # Network Implementation
 
 * **Octave Convolution**
-
   * Paper: [Drop an Octave: Reducing Spatial Redundancy in Convolutional Neural Networks With Octave Convolution](https://ieeexplore.ieee.org/document/9010309)
   * Official website: [facebookresearch/OctConv](https://github.com/facebookresearch/OctConv)
   * My implementation in Keras: [VincentYCYao/OctConv-TransOctConv-Keras](https://github.com/VincentYCYao/OctConv-TransOctConv-Keras)
