@@ -15,7 +15,7 @@ order: 2
 
 **Updates**
 
-* **[26 Nov 2020]** algorithms for automatic cartilage thickness quantification using both 3D nearest neighbor and 3D normal vector approach are under evaluation and comparison
+* **[26 Nov 2020]** algorithms for automatic cartilage thickness quantification using both 3D nearest neighbor and surface normal approach are under evaluation and comparison
 
 * **[27 Oct 2020]** a prototype for automatic cartilage thickness quantification is under beta test, using both public MRI data from the [Osteoarthritis Initiative (OAI)](https://nda.nih.gov/oai/) and non-public data collected in Prince of Wales Hospital, N.T., Hong Kong
 
