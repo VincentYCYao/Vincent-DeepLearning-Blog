@@ -15,7 +15,9 @@ order: 2
 
 **Updates**
 
-* **[Oct 27 2020]** a prototype for automatic cartilage thickness quantification is under beta test, using both public MRI data from the [Osteoarthritis Initiative (OAI)](https://nda.nih.gov/oai/) and non-public data collected in Prince of Wales Hospital, N.T., Hong Kong
+* **[26 Nov 2020]** algorithms for automatic cartilage thickness quantification using both 3D nearest neighbor and 3D normal vector approach are under evaluation and comparison
+
+* **[27 Oct 2020]** a prototype for automatic cartilage thickness quantification is under beta test, using both public MRI data from the [Osteoarthritis Initiative (OAI)](https://nda.nih.gov/oai/) and non-public data collected in Prince of Wales Hospital, N.T., Hong Kong
 
 
 
@@ -57,6 +59,18 @@ To be added after paper publication.
 **Paper**
 
 [Liang, Y., **Yao, Y. C.**, Zhao, L., Shi, L., Chen, Y. K., Mok, V. C., ... & Tang, W. K. (2020). Topological reorganization of the default mode network in patients with poststroke depressive symptoms: A resting-state fMRI study. *Journal of Affective Disorders*, *260*, 557-568.](https://www.sciencedirect.com/science/article/pii/S0165032719302915)
+
+```
+@article{liang2020topological,
+  title={Topological reorganization of the default mode network in patients with poststroke depressive symptoms: A resting-state fMRI study},
+  author={Liang, Yan and Yao, Yong-Cheng and Zhao, Lei and Shi, Lin and Chen, Yang-Kun and Mok, Vincent CT and Ungvari, Gabor S and Chu, Winnie CW and Tang, Wai-Kwong},
+  journal={Journal of Affective Disorders},
+  volume={260},
+  pages={557--568},
+  year={2020},
+  publisher={Elsevier}
+}
+```
 
 **Contributions**
 
