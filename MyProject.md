@@ -11,12 +11,13 @@ order: 2
 
 # Research Projects
 
-## (ongoing) Automatic Grading System for Osteoarthritis: an MRI+AI Study
+## (ongoing) Automated Grading System for Osteoarthritis: an MRI+AI Study
 
-**Updates**
+**Updates on cartilage thickness measurement**
 
+* **[16 Dec 2020]** an abstract has been submitted to [**ISMRM2021**](https://www.ismrm.org)
+* **[15 Dec 2020]** the uncertainty in cartilage thickness measurement using the proposed SN method is evaluated
 * **[26 Nov 2020]** algorithms for automatic cartilage thickness quantification using both 3D nearest neighbor and surface normal approach are under evaluation and comparison
-
 * **[27 Oct 2020]** a prototype for automatic cartilage thickness quantification is under beta test, using both public MRI data from the [Osteoarthritis Initiative (OAI)](https://nda.nih.gov/oai/) and non-public data collected in Prince of Wales Hospital, N.T., Hong Kong
 
 
@@ -32,7 +33,7 @@ Drafting a journel paper...
 **Contributions**
 
 * Conceptualization
-* Data acquisition
+* Data acquisition (data selection)
 * Data analysis
 * Data visualization
 * Interpretation of results
