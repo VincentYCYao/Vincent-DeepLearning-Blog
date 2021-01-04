@@ -15,9 +15,11 @@ order: 2
 
 **Updates on cartilage thickness measurement**
 
+* **[4 Jan 2021]** the surface normal orientation correction algorithm in the proposed SN approach is improved, being more accurate and robust against various surface shapes
+* **[29 Dec 2020]** the SN & 3dNN methods are tested with synthesized data whose ground truth thickness maps are known
 * **[16 Dec 2020]** an abstract has been submitted to [**ISMRM2021**](https://www.ismrm.org)
 * **[15 Dec 2020]** the uncertainty in cartilage thickness measurement using the proposed SN method is evaluated
-* **[26 Nov 2020]** algorithms for automatic cartilage thickness quantification using both 3D nearest neighbor and surface normal approach are under evaluation and comparison
+* **[26 Nov 2020]** algorithms for automatic cartilage thickness quantification using both 3D nearest neighbor (3dNN) and surface normal (SN) approach are under evaluation and comparison
 * **[27 Oct 2020]** a prototype for automatic cartilage thickness quantification is under beta test, using both public MRI data from the [Osteoarthritis Initiative (OAI)](https://nda.nih.gov/oai/) and non-public data collected in Prince of Wales Hospital, N.T., Hong Kong
 
 
