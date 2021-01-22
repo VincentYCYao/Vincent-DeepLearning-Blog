@@ -1,0 +1,53 @@
+---
+layout: post
+title:  “Review: Detecting abnormalities from knee MRI using deep learning"
+date:   2021-01-22 21:00:00 +0800
+categories: deeplearning
+---
+
+In this blog, the paper [Deep-learning-assisted diagnosis for knee magnetic resonance imaging: Development and retrospective validation of MRNet](https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002699) is reviewed. This paper was published on PLOS Medicine in 2019.
+
+In this study, the authors  developed a deep learning model for detecting general abnormalities, anterior cruciate ligament (ACL) tears, and meniscal tears on knee MRI exams.
+
+## 1. Background
+
+The interpretation of knee MRI is time-intensive and subject to diagnostic error and variability. An automated system for interpreting knee MRI could prioritize high-risk patients and assist clinicians in making diagnoses.
+
+## 2. Methods
+
+### 2.1 MRNet
+
+![fig1]({{site.baseurl}}/assets/210122_MRNet/img/fig1.png)
+
+Figure 1. MRNet architecture.
+{: style="text-align: center; color: gray"}
+
+> The input to MRNet has dimensions *s* × 3 × 256 × 256, where *s* is the number of images in the MRI series (3 is the number of color channels). First, each 2-dimensional MRI image slice was passed through a feature extractor based on AlexNet to obtain a *s* × 256 × 7 × 7 tensor containing features for each slice. A global average pooling layer was then applied to reduce these features to *s* × 256. We then applied max pooling across slices to obtain a 256-dimensional vector, which was passed to a fully connected layer and sigmoid activation function to obtain a prediction in the 0 to 1 range. We optimized the model using binary cross-entropy loss. 
+>
+> We initialized the weights of the AlexNet portion of the MRNet to values optimized on the ImageNet database
+
+* feature extractors from AlexNet trained on ImageNet
+* global average pooling layer
+* max pooling layer
+* fully connected layer + sigmoid activation
+
+![fig1]({{site.baseurl}}/assets/210122_MRNet/img/fig2.png)
+
+Figure 2. Combining series predictions using logistic regression.
+{: style="text-align: center; color: gray"}
+
+### 2.2 Class Activation Mappings (CAMs)
+
+![fig1]({{site.baseurl}}/assets/210122_MRNet/img/fig3.png)
+
+Figure 3. Class activation mappings for MRNet interpretation.
+{: style="text-align: center; color: gray"}
+
+> To generate a CAM for an image, we computed a weighted average across the 256 CNN feature maps using weights from the classification layer to obtain a 7 × 7 image. The CAM was then mapped to a color scheme, upsampled to 256 × 256 pixels, and overlaid with the original input image. By using parameters from the final layer of the network to weight the feature maps, more predictive feature maps appear brighter. Thus, the brightest areas of the CAMs are the regions that most influence the model’s prediction.
+
+## 3. Results
+
+* In detecting abnormalities, ACL tears, and meniscal tears, this model achieved area under the receiver operating characteristic curve (AUC) values of 0.937 (95% CI 0.895, 0.980), 0.965 (95% CI 0.938, 0.993), and 0.847 (95% CI 0.780, 0.914), respectively, on the internal validation set
+* no significant differences between the performance of the model and that of unassisted general radiologists in detecting abnormalities
+* providing model predictions significantly increased clinical experts’ specificity in identifying ACL tears (*p-*value < 0.001; *q-*value = 0.006)
+
