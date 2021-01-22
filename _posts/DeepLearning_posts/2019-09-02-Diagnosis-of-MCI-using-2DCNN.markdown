@@ -38,8 +38,6 @@ The authors trained several binary classifiers using 5-layers-2D-CNN (3 convolut
 Figure 1. The subjects’ clinical and demographic characteristics. For each group, N represents the total number of subjects, M and F show number of males and females, along with the average age, standard deviation (SD) and average mini-mental state examination (MMSE) score.
 {: style="text-align: center; color: gray"}
 
-<br/>
-
 ### 2.2. Preprocessing of Structural MRI
 
 * **Toolbox**: [*SPM12*](https://www.fil.ion.ucl.ac.uk/spm/software/spm12/)
@@ -62,8 +60,6 @@ Figure 1. The subjects’ clinical and demographic characteristics. For each gro
 
 * **Discard useless slices for each view**: only retain 20 slices for each view (60 2D images for each subject)
 
-<br/>
-
 ### 2.3. CNN Architecture
 
 ![fig2]({{site.baseurl}}/assets/190901_MCI_CNN/img/fig2.png)
@@ -78,8 +74,6 @@ Figure 2. CNN Architecture
 * 1 fully connected layer: 128 kernels (neurons) with ReLu activation
 
 * 1 neuron with sigmoid activation
-
-<br/>
 
 ### 2.4. Training Details
 
@@ -96,8 +90,6 @@ Figure 2. CNN Architecture
 * **Image Augmentation**: sheering, random rotation, zooming (not explained in details)
 
 * **Training and Testing Split**: 70% (280 subjects) for training, 30% (120 subjects) for testing
-
-<br/>
 
 ### 2.5. Performance Measurements
 
