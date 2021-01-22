@@ -10,8 +10,6 @@ In this blog, the paper [A Deep Learning approach for Diagnosis of Mild Cognitiv
 
 The authors trained several binary classifiers using 5-layers-2D-CNN (3 convolutional layers and 2 fully connected layer) to classify early mild cognitive impairment (EMCI), late MCI (LMCI), and normal control (NC, denoted "CN" in the paper). That is, 3 classifiers for distinguishing EMCI-LMCI, EMCI-NC, and LMCI-NC.
 
-<br/>
-
 ## 1. Background
 
 > There is no clear differentiation between the brain structure of healthy people and MCI patients, especially in the EMCI stage. 
@@ -21,8 +19,6 @@ The authors trained several binary classifiers using 5-layers-2D-CNN (3 convolut
 > These two groups are discriminated from each other based on the degree of memory impairment. In the EMCI patients, the decline in memory is approximately between 1.0–1.5 standard deviations (SD) below the normative mean, while in LMCI, the decline in memory is at least approximately 1.5 SD below the normative mean.
 
 > Due to the similarities between the normal aging and MCI patients’ brain structures, a diagnosis of the MCI stage based on MRI and the discrimination between these two groups, mainly between EMCI and normal aging, is one of the most challenging parts of aging research.
-
-<br/>
 
 ## 2. Methods and Materials
 
@@ -95,25 +91,23 @@ Figure 2. CNN Architecture
 
 * **Accuracy**: 
 
-$$ Accuracy = (TP+TN) / (TP+TN+FP+FN)$$
+ $Accuracy = (TP+TN) / (TP+TN+FP+FN)$
 
 * **Sensitivity (Recall)**: 
 
-$$ R = Recall = Sensitivity = TP / (TP+FN)$$
+$R = Recall = Sensitivity = TP / (TP+FN)$
 
 * **Specificity**: 
 
-$$ Specificity = TN / (TN+FP)$$
+$Specificity = TN / (TN+FP)$
 	
 * **F-score**: 
 
-$$P = Precision = TP / (TP+FP)$$
+$P = Precision = TP / (TP+FP)$
 
-$$F-score = 2* (P+R) / (P*R)$$
+$F-score = 2* (P+R) / (P*R)$
 
 * **AUC-ROC**
-
-<br/>
 
 ## 3. Results
 
@@ -125,25 +119,11 @@ Figure 3. The classification results of the control normal (CN) versus early mil
 Figure 4. Receiver operating characteristic-area under the curve (ROC-AUC) results of the sagittal, coronal, and axial views.
 {: style="text-align: center; color: gray"}
 
-<br/>
-
 ## 4. Conclusions
 
 > The proposed method for feature extraction and classification delivered a high accuracy for the EMCI, LMCI, and CN groups.
 
 > The best results were achieved for the classification between CN and LMCI groups in the sagittal view and also, the pairs of EMCI/LMCI have achieved slightly better accuracy than CN/EMCI concerning all views of the MRI.
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

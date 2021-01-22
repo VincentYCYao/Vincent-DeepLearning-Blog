@@ -12,8 +12,6 @@ The authors proposed **Octave Convolution (OctConv)**, which can replace vanilla
 
 The implementation of OctConv can be found [**here**](https://github.com/facebookresearch/OctConv).
 
-<br/>
-
 ## 1. Background and Inspiration
 
 ### 1.1. Background
@@ -34,8 +32,6 @@ The implementation of OctConv can be found [**here**](https://github.com/faceboo
 
 Figure 1. (a) Motivation. The spatial frequency model for vision [1, 10] shows that natural image can be decomposed into a low and a high spatial frequency part. (b) The output maps of a convolution layer can also be factorized and grouped by their spatial frequency. (c) The proposed multifrequency feature representation stores the smoothly changing, low-frequency maps in a low-resolution tensor to reduce spatial redundancy. (d) The proposed Octave Convolution operates directly on this representation. It updates the information for each group and further enables information exchange between groups.
 {: style="text-align: center; color: gray"}
-
-<br/>
 
 ## 2. Methods
 
@@ -86,8 +82,6 @@ $$ Y^L = f(X^L; W^{L \rightarrow L}) + f(pool(X^H, 2); W^{H \rightarrow L}) $$
 * **Upsampling**
   *  **MG-Conv** first upsamples and then convolves with the feature map
   *  **OctConv** performs upsampling after convolution, which is more efficient than MG-Conv
-
-<br/>
 
 ## 3. Experiments and Results
 
@@ -186,7 +180,6 @@ Table 6: ImageNet Classification results for Middle sized models. ‡ refers to 
 
 **Table 7**: ImageNet Classification results for Large models. The names of OctConv-equipped models are in bold font and performance numbers for related works are copied from the corresponding papers. Networks are evaluated using CuDNN v10.03in flop16 on a single Nvidia Titan V100 (32GB) for their training memory cost and speed. Works that employ neural architecture search are denoted by ($$ \diamond $$). We set batch size to 128 in most cases, but had to adjust it to 64 (noted by †), 32 (noted by ‡) or 8 (noted by §) for networks that are too large to fit into GPU memory.
 {: style="color: gray"}
-<br/>
 
 ## 4. Conclusions
 
