@@ -11,10 +11,6 @@ In this blog, the paper [A Deep Learning approach for Diagnosis of Mild Cognitiv
 The authors trained several binary classifiers using 5-layers-2D-CNN (3 convolutional layers and 2 fully connected layer) to classify early mild cognitive impairment (EMCI), late MCI (LMCI), and normal control (NC, denoted "CN" in the paper). That is, 3 classifiers for distinguishing EMCI-LMCI, EMCI-NC, and LMCI-NC.
 
 <br/>
-<br/>
-
-
-
 
 ## 1. Background
 
@@ -27,14 +23,10 @@ The authors trained several binary classifiers using 5-layers-2D-CNN (3 convolut
 > Due to the similarities between the normal aging and MCI patients’ brain structures, a diagnosis of the MCI stage based on MRI and the discrimination between these two groups, mainly between EMCI and normal aging, is one of the most challenging parts of aging research.
 
 <br/>
-<br/>
-
-
-
 
 ## 2. Methods and Materials
 
-# 2.1. Structural MRI Data
+### 2.1. Structural MRI Data
 
 * **Data source**: [*Alzheimer’s disease Neuroimaging Initiative (ADNI) database*](http://www.loni.ucla.edu/ADNI).
 
@@ -48,8 +40,7 @@ Figure 1. The subjects’ clinical and demographic characteristics. For each gro
 
 <br/>
 
-
-# 2.2. Preprocessing of Structural MRI
+### 2.2. Preprocessing of Structural MRI
 
 * **Toolbox**: [*SPM12*](https://www.fil.ion.ucl.ac.uk/spm/software/spm12/)
 
@@ -73,8 +64,7 @@ Figure 1. The subjects’ clinical and demographic characteristics. For each gro
 
 <br/>
 
-
-# 2.3. CNN Architecture
+### 2.3. CNN Architecture
 
 ![fig2]({{site.baseurl}}/assets/190901_MCI_CNN/img/fig2.png)
 Figure 2. CNN Architecture
@@ -91,8 +81,7 @@ Figure 2. CNN Architecture
 
 <br/>
 
-
-# 2.4. Training Details
+### 2.4. Training Details
 
 **Train classifier for each pair of group (3 pairs) and anatomical view (3 views), that is, 9 classifiers**
 
@@ -110,8 +99,7 @@ Figure 2. CNN Architecture
 
 <br/>
 
-
-# 2.5. Performance Measurements
+### 2.5. Performance Measurements
 
 * **Accuracy**: 
 
@@ -134,8 +122,6 @@ $$F-score = 2* (P+R) / (P*R)$$
 * **AUC-ROC**
 
 <br/>
-<br/>
-
 
 ## 3. Results
 
@@ -147,9 +133,10 @@ Figure 3. The classification results of the control normal (CN) versus early mil
 Figure 4. Receiver operating characteristic-area under the curve (ROC-AUC) results of the sagittal, coronal, and axial views.
 {: style="text-align: center; color: gray"}
 
-
+<br/>
 
 ## 4. Conclusions
+
 > The proposed method for feature extraction and classification delivered a high accuracy for the EMCI, LMCI, and CN groups.
 
 > The best results were achieved for the classification between CN and LMCI groups in the sagittal view and also, the pairs of EMCI/LMCI have achieved slightly better accuracy than CN/EMCI concerning all views of the MRI.
