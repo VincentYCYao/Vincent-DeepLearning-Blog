@@ -1,0 +1,77 @@
+---
+layout: post
+title: "Review: Knee Cartilage Segmentation Using muNet"
+date:  2021-01-25 22:30:00 +0800
+categories: deeplearning
+---
+
+In this blog, the paper [Automatic knee cartilage segmentation using fully volumetric convolutional neural networks for evaluation of osteoarthritis](https://ieeexplore.ieee.org/abstract/document/8363705) is reviewed. This paper was published on **ISBI 2018** (International Symposium on Biomedical Imaging).
+
+In this paper, the author proposed a 3D CNN called $$\mu$$Net, inspired by the 3D UNet.
+
+## 1. Background
+
+> Recent studies have shown that knee OA is reversible if detected at an early stage of biochemical changes in knee cartilage.
+>
+> Quantitative MRI mapping techniques such as T2 and T1rho have been shown as potential biomarkers for biochemical changes in cartilage for early detection of OA. Biomarkers for cartilage measurement such as its volume, thickness and surface area are used in clinical practice to assess OA progression. These biomarkers are sensitive to the accurate cartilage segmentation.
+
+## 2. Methods
+
+### 2.1 Network Architecture: $$\mu$$Net
+
+![fig1]({{site.baseurl}}/assets/210125_muNet/img/fig1.png)
+
+Figure 1. $$\mu$$Net.
+{: style="text-align: center; color: gray"}
+
+The architecture is similar to UNet.
+
+> Inspired by the standard U-Net, it has an analysis and a synthesis path each with four resolution steps. In the analysis path, each resolution step contains two 3×3×3 convolutions, followed by a **parametric rectified linear unit (PReLU)**, and a 2×2×2 convolution with strides of two for down-sampling. While in the synthesis path, each resolution step consists of two 3×3×3 convolutions, followed by a PReLU and a deconvolution of 2×2×2 with strides of two for up-sampling.
+
+**Features:**
+
+* **Short-skip connections (by addition operation):** 
+  * Reference: **ResNet**
+  * within each resolution of the analysis and synthesis path to eliminate the problem of **vanishing gradients**
+* **Long-skip connections (by addition operation):** 
+  * Reference: **UNet** 
+  * across the layers of equal resolution from the analysis to synthesis path enabling high-resolution feature flow in the network
+* **Extra input feeding (by concatenation):** The information lost during down-sampling was avoided by feeding the input in analysis path. 
+* **Deep supervision during training:** 
+  * Reference: **Deeply-Supervised Nets**
+  * Loss layers are added at each step in the synthesis part of the network which acts as an auxiliary classifier, providing a form of deep supervision. All resolution steps in the synthesis path are first up- sampled using deconvolution to the native input resolution, followed by a 1×1×1 convolution that reduces the number of output channels to number of labels and are fed to the auxiliary classifier. The feed from all the auxiliary classifiers is added to a main classifier which controls the learning rate of different auxiliary classifiers as a function of iterations.
+* **Multi-class Dice Score:**
+
+### 2.2 Dataset
+
+* **SKI10 challenge:** 
+  * 100 3D MR images
+  * MR sequence: T1w or T2w
+  * femoral and tibial cartilage labels were used
+* **OAI data:**
+  * 176 knee 3D MR volumes (88 patients, one baseline scan and one 12-month follow-up scan)
+  * MR sequence: 3D Double Echo Steady State (3D-DESS)
+  * 6 structures (femoral cartilage, left and right tibial cartilage, left and right menisci and patellar cartilage)
+
+###  2.3 Training & Testing
+
+* Preprocessing: scale to 128×128×64 
+* Data augmentation: Data augmentation was performed by using random non-linear deformations in space and intensity — the same method used in the [V-Net paper](https://ieeexplore.ieee.org/abstract/document/7785132)
+* Testing: the auxiliary classifiers and lateral up-sampling which were added in the network during training were removed at the time of testing
+
+### 2.4 Evaluation
+
+* 5-fold validation
+* Metrics:
+  * Dice Score
+  * Volume Overlap Error (VOE)
+  * Volume Difference (VD)
+  * Average Hausdorff Distance (Avg.HD)
+
+## 3. Results
+
+![Fib2]({{site.baseurl}}/assets/210125_muNet/img/fig2.png)
+
+Table 2: Metrics for on the OAI DESS studies for the six structures and background along with 95% CIs.
+{: style="text-align: center; color: gray"}
+

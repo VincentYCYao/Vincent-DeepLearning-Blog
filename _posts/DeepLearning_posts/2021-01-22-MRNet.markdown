@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Review: Detecting abnormalities from knee MRI using deep learning"
+title: "Review: Detecting Abnormalities from Knee MRI Using Deep Learning"
 date:  2021-01-22 21:00:00 +0800
 categories: deeplearning
 ---
