@@ -33,7 +33,7 @@ The architecture is similar to UNet.
 * **Short-skip connections (by addition operation):** 
 
   * Reference: **ResNet**
-  * within each resolution of the analysis and synthesis path to eliminate the problem of **vanishing gradients**
+  * within each resolution of the analysis and synthesis path to eliminate the problem of vanishing gradients
 
 * **Long-skip connections (by addition operation):** 
 
