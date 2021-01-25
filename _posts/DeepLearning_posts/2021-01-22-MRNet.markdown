@@ -68,7 +68,9 @@ The interpretation of knee MRI is time-intensive and subject to diagnostic error
 
 #### 2.2.3 Class Activation Mappings (CAMs)
 
-> To generate a CAM for an image, we computed a weighted average across the 256 CNN feature maps using weights from the classification layer to obtain a 7 × 7 image. The CAM was then mapped to a color scheme, upsampled to 256 × 256 pixels, and overlaid with the original input image. By using parameters from the final layer of the network to weight the feature maps, more predictive feature maps appear brighter. Thus, the brightest areas of the CAMs are the regions that most influence the model’s prediction.
+> To generate a CAM for an image, we computed a weighted average across the 256 CNN feature maps using weights from the classification layer to obtain a 7 × 7 image. The CAM was then mapped to a color scheme, upsampled to 256 × 256 pixels, and overlaid with the original input image. By using parameters from the final layer of the network to weight the feature maps, more predictive feature maps appear brighter.
+>
+>  Thus, the brightest areas of the CAMs are the regions that most influence the model’s prediction.
 
 ![fig3]({{site.baseurl}}/assets/210122_MRNet/img/fig3.png)
 
@@ -79,12 +81,25 @@ The interpretation of knee MRI is time-intensive and subject to diagnostic error
 
 > Given predictions from the sagittal T2, coronal T1, and axial PD MRNets on the training set, along with their corresponding original labels, we trained a logistic regression to weight the predictions from the 3 series and generate a single output for each exam. 
 
+The most beneficial series, determined from the coefficients of the fitted logistic regression:
+
+* axial PD for abnormalities and meniscal tears
+* coronal T1 for ACL tears
+
 ![fig4]({{site.baseurl}}/assets/210122_MRNet/img/fig4.png)
 
 **Figure 4. Combining series predictions using logistic regression.** Each examination contains 3 types of series: sagittal, coronal, and axial. For each task (abnormality, ACL tear, meniscal tear), we trained a logistic regression classifier to combine the 3 probabilities output by the MRNets to produce a single predicted probability for the exam.
 {: style="text-align: center; color: gray"}
 
-## 3. Results
+### 2.3 Evaluation
+
+(a threshold of 0.5 was used to dichotomize the model’s predictions)
+
+* performance measures for the model : sensitivity, specificity, and accuracy, receiver operating characteristic curve (AUC)
+* performance measures for general radiologists and orthopedic surgeons:  sensitivity, specificity, and accuracy
+* we performed robust hypothesis tests to assess if the clinical experts (as a group) demonstrated statistically significant improvement with model assistance
+
+## 4. Results
 
 * In detecting abnormalities, ACL tears, and meniscal tears, this model achieved area under the receiver operating characteristic curve (AUC) values of 0.937 (95% CI 0.895, 0.980), 0.965 (95% CI 0.938, 0.993), and 0.847 (95% CI 0.780, 0.914), respectively, on the internal validation set
 * no significant differences between the performance of the model and that of unassisted general radiologists in detecting abnormalities
