@@ -1,6 +1,6 @@
 ---
 layout: post
-title: “Review: Knee Cartilage Segmentation Using a Triplanar Convolutional Neural Network"
+title: "Review: Knee Cartilage Segmentation Using a Triplanar Convolutional Neural Network"
 date:  2021-01-25 19:30:00 +0800
 categories: deeplearning
 ---
@@ -19,23 +19,30 @@ This is one of the early explorations of the applications of CNN on knee cartila
 
 ## 2. Triplanar CNN
 
-**Input of the CNN:** three 2D patchs centered around a voxel, extracted from each of the three planes
+**Input of the CNN:** three 2D patches centered around a voxel, extracted from each of the three planes
 
 **Output of the CNN:** probability map
 
-
-
 ![fig1]({{site.baseurl}}/assets/210125_TriplanarCNN//img/fig1.png)
 
-**Figure 1.** The three images planes giving rise to our triplanar convolutional neural network (CNN) architecture. One patch centered in the voxel is extracted from each of the planes. The three CNNs are fused in the final layer.
+**Figure 1.** The proposed CNN architecture.
 {: style="text-align: center; color: gray"}
 
 ![fig2]({{site.baseurl}}/assets/210125_TriplanarCNN//img/fig2.png)
 
-**Figure 2. The CNN mentioned in Figure 1.
+**Figure 2.** The three images planes giving rise to our triplanar convolutional neural network (CNN) architecture. One patch centered in the voxel is extracted from each of the planes. The three CNNs are fused in the final layer.
 {: style="text-align: center; color: gray"}
 
+**Note:** For each voxel, three 2D patches centered around itself are extracted. Each 2D patch image are the input to a CNN as shown in Figure 1. The last layer of the proposed CNN for each patch in each of the three planes are concatenated together, followed by a softmax layer.
 
+## 3. Result
+
+| Method               | Over 114 Scans | DSC        | Accuracy | Accuracy | Specificity |
+| -------------------- | -------------- | ---------- | -------- | -------- | ----------- |
+| Triplanar CNN        | Mean           | **0.8249** | 99.93%   | 81.92%   | 99.97%      |
+| State-of-the-art [5] | Mean           | 0.8135     | 99.92%   | 80.52%   | 99.96%      |
+
+[5] [Segmenting Articular Cartilage Automatically Using a Voxel Classification Approach](https://ieeexplore.ieee.org/document/4039531)
 
 
 
