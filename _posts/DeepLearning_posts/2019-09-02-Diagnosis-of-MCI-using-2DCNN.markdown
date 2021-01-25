@@ -91,21 +91,21 @@ Figure 2. CNN Architecture
 
 * **Accuracy**: 
 
- $Accuracy = (TP+TN) / (TP+TN+FP+FN)$
+$$Accuracy = (TP+TN) / (TP+TN+FP+FN)$$
 
 * **Sensitivity (Recall)**: 
 
-$R = Recall = Sensitivity = TP / (TP+FN)$
+$$R = Recall = Sensitivity = TP / (TP+FN)$$
 
 * **Specificity**: 
 
-$Specificity = TN / (TN+FP)$
+$$Specificity = TN / (TN+FP)$$
 	
 * **F-score**: 
 
-$P = Precision = TP / (TP+FP)$
+$$P = Precision = TP / (TP+FP)$$
 
-$F-score = 2* (P+R) / (P*R)$
+$$F-score = 2* (P+R) / (P*R)$$
 
 * **AUC-ROC**
 
