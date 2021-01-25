@@ -31,16 +31,33 @@ The architecture is similar to UNet.
 **Features:**
 
 * **Short-skip connections (by addition operation):** 
+
   * Reference: **ResNet**
   * within each resolution of the analysis and synthesis path to eliminate the problem of **vanishing gradients**
+
 * **Long-skip connections (by addition operation):** 
+
   * Reference: **UNet** 
   * across the layers of equal resolution from the analysis to synthesis path enabling high-resolution feature flow in the network
+
 * **Extra input feeding (by concatenation):** The information lost during down-sampling was avoided by feeding the input in analysis path. 
+
 * **Deep supervision during training:** 
+
   * Reference: **Deeply-Supervised Nets**
   * Loss layers are added at each step in the synthesis part of the network which acts as an auxiliary classifier, providing a form of deep supervision. All resolution steps in the synthesis path are first up- sampled using deconvolution to the native input resolution, followed by a 1×1×1 convolution that reduces the number of output channels to number of labels and are fed to the auxiliary classifier. The feed from all the auxiliary classifiers is added to a main classifier which controls the learning rate of different auxiliary classifiers as a function of iterations.
-* **Multi-class Dice Score:**
+
+* **Multi-class Dice Score:** 
+
+  * Dice loss is modified to accommodate for multiple labels to generate a multi-class (3 for SKI10 and 7 for OAI), N, segmentation. Modified Dice loss, Dk at kth resolution, for auxiliary loss layer (shown as green in Fig 1) is given by,
+
+    $$D_{k}=\frac{2 \sum_{i}^{N} p_{i} g_{i}}{\sum_{i}^{N} p_{i}^{2}+\sum_{i}^{N} g_{i}^{2}}, \frac{\partial D_{k}}{\partial p_{j}}=2\left[\frac{g_{j}\left(\sum_{i}^{N} p_{l}^{2}+\sum_{i}^{N} g_{i}^{2}\right)-2 p_{j}\left(\sum_{l}^{N} p_{i} g_{i}\right)}{\left(\sum_{i}^{N} p_{i}^{2}+\sum_{i}^{N} g_{i}^{2}\right)^{2}}\right]$$
+
+  * Loss, D, for main loss layer (shown as red in Fig 1) is given by,
+
+    $$ D=\sum_{k-1}\left(\alpha_{k} * D_{k}\right)+\beta D_{4} $$
+
+    $$ \alpha_{k}=\alpha_{k}\left(1-\frac{\#  { (Iteration) }}{\#( { Total lteration }}\right), \quad \sum_{k-1} \alpha_{k}+\beta=1 $$
 
 ### 2.2 Dataset
 
@@ -69,6 +86,11 @@ The architecture is similar to UNet.
   * Average Hausdorff Distance (Avg.HD)
 
 ## 3. Results
+
+![Fib3]({{site.baseurl}}/assets/210125_muNet/img/fig3.png)
+
+Table 1: Comparison of results (mean ± standard deviation along with 95% CI) on MICCAI datasets with Imorphics
+{: style="text-align: center; color: gray"}
 
 ![Fib2]({{site.baseurl}}/assets/210125_muNet/img/fig2.png)
 
