@@ -33,7 +33,6 @@ The interpretation of knee MRI is time-intensive and subject to diagnostic error
 {: style="text-align: center; color: gray"}
 
 **MRI Sequences:**
-
 * sagittal plane T2-weighted series
 * coronal plane T1-weighted series
 * axial plane PD-weighted series
@@ -55,7 +54,6 @@ The interpretation of knee MRI is time-intensive and subject to diagnostic error
 > We initialized the weights of the AlexNet portion of the MRNet to values optimized on the **ImageNet** database
 
 **Network structure:**
-
 * feature extractors from AlexNet pre-trained on ImageNet
 * global average pooling layer
 * max pooling layer
@@ -82,7 +80,6 @@ The interpretation of knee MRI is time-intensive and subject to diagnostic error
 > Given predictions from the sagittal T2, coronal T1, and axial PD MRNets on the training set, along with their corresponding original labels, we trained a logistic regression to weight the predictions from the 3 series and generate a single output for each exam. 
 
 The most beneficial series, determined from the coefficients of the fitted logistic regression:
-
 * axial PD for abnormalities and meniscal tears
 * coronal T1 for ACL tears
 
@@ -94,7 +91,6 @@ The most beneficial series, determined from the coefficients of the fitted logis
 ### 2.3 Evaluation
 
 (a threshold of 0.5 was used to dichotomize the model’s predictions)
-
 * performance measures for the model : sensitivity, specificity, and accuracy, receiver operating characteristic curve (AUC)
 * performance measures for general radiologists and orthopedic surgeons:  sensitivity, specificity, and accuracy
 * we performed robust hypothesis tests to assess if the clinical experts (as a group) demonstrated statistically significant improvement with model assistance
