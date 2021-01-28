@@ -20,7 +20,6 @@ In this paper, the author proposed the **BCD-Net** which converts the knee carti
 ### 2.1 Dataset
 
 The experiments were performed on the SKI10 public challenge dataset for knee MRI cartilage segmentation.
-
 * Training: 60 MR images
 * Validation: 40 MR images
 
@@ -32,7 +31,6 @@ The experiments were performed on the SKI10 public challenge dataset for knee MR
 {: style="text-align: center; color: gray"}
 
 **Training BCD-Net:**
-
 * construction of bone-cartilage-complexes (BCCs)
 * adapt [**RefineNet (CVPR2017)**](https://ieeexplore.ieee.org/abstract/document/8100032) for the segmentation of BCCs and bones
 * subtract bone from BCC to get cartilage segmentation
@@ -53,20 +51,15 @@ The experiments were performed on the SKI10 public challenge dataset for knee MR
 
 #### Trained Network for Comparison
 
-**To varify the BCD-Net **
-
+**To varify the BCD-Net**
 * conventional 2D 4-class (FB, TB, FC, TC) segmentation using RefineNet for each plane (S, C, A)
-
 * BCD-Net, which also uses RefineNet for segmentation but involves the BCC, for each plane (S, C, A)
 
-
 **To varify the 2.5D segmentation**
-
 * RefineNet (MV)
 * BCD-Net (MV)
 
 **Combine BCD-Net and conventional RefineNet by MV**
-
 * BCD-Net (MV6): we constructed the *BCD-Net (MV6)* method which averages all six segmentation masks, including three 2D RefineNet and three 2D BCD-Net, by majority voting.
 
 ## 3. Results
@@ -82,5 +75,4 @@ The experiments were performed on the SKI10 public challenge dataset for knee MR
 ![Fib2]({{site.baseurl}}/assets/210128_BCDNet/img/fig4.png)
 
 **Figure 2:** BCD-Net segmentation results; FB, TB, FC, and TC are masked in colors of blue, purple, red, and cyan, respectively.
-
 {: style="text-align: center; color: gray"}
