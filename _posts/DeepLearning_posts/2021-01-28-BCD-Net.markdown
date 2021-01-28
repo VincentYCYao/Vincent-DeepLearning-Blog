@@ -64,19 +64,7 @@ The experiments were performed on the SKI10 public challenge dataset for knee MR
 
 ## 3. Results
 
-**DCS on the SKI10 Challenge Dataset:**
-
-| Methods        | FB       | TB       | FC       | TC       |
-| -------------- | -------- | -------- | -------- | -------- |
-| RefineNet (S)  | 96.8     | 82.8     | 97.8     | 81.8     |
-| RefineNet (C)  | 96.5     | 74.4     | 96.4     | 77.9     |
-| RefineNet (A)  | 96.3     | 76.3     | 96.6     | 82.8     |
-| RefineNet (MV) | **97.3** | 82.7     | 97.8     | 82.8     |
-| BCD-Net (S)    | 96.7     | 81.5     | 97.8     | 81.8     |
-| BCD-Net (C)    | 96.6     | 79.2     | 97.5     | 81.4     |
-| BCD-Net (A)    | 94.0     | 72.7     | 97.6     | 65.6     |
-| BCD-Net (MV)   | 97.0     | 83.4     | 98.0     | 83.7     |
-| BCD-Net (MV6)  | **97.3** | **84.4** | **98.1** | **83.8** |
+![Tab2]({{site.baseurl}}/assets/210128_BCDNet/img/fig2.png)
 
 * the proposed BCD-Net improves that accuracy of relatively smaller structures such as TB and TC thanks to the BCD extraction
 * The 2.5D segmentation showed general improvement in bone and cartilage segmentation in both RefineNet and BCD-Net methods
