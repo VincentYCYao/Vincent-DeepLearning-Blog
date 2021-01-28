@@ -1,0 +1,86 @@
+---
+layout: post
+title: "Review: Knee Cartilage Segmentation Using BCD-Net and 2.5D Segmentation"
+date:  2021-01-28 18:15:00 +0800
+categories: deeplearning
+---
+
+In this blog, the paper [BCD-NET: A novel method for cartilage segmentation of knee MRI via deep segmentation networks with bone-cartilage-complex modeling](https://ieeexplore.ieee.org/abstract/document/8363866) is reviewed. It was first published as a 4-pages conference paper on **ISBI 2018** (International Symposium on Biomedical Imaging).
+
+In this paper, the author proposed the **BCD-Net** which converts the knee cartilage segmentation problem into the segmentation of **bone-cartilage-complex (BCC)** and the bone, and the **bone-BCC-difference (BCD)** problem. By subtracting the bone segmentation from the BCC segmentation, we can get the cartilage segmentation. The BCC is proposed to alleviate the small object ignorance problem of CNN. The authors also evaluated the contribution of 2.5D segmentation on the knee cartilage segmentation task. Results show that 2.5D segmentation improves the performance, compared witht the 2D segmentation.
+
+## 1. Background
+
+> Recently, the deep segmentation networks (DSNs) have been applied to the cartilage segmentation and have shown promising results. However, the DSNs have limitations for cartilage segmentation in that the networks tend to **ignore smaller objects** like the cartilage during learning the multi-class segmentation.
+>
+> To overcome the small cartilage ignorance of DSNs, we propose to con- struct the BCC which combines bone and cartilage in a single mask. Then we convert the problem of segmenting cartilages into the problem of segmenting the BCCs and bones, and extracting the cartilages by subtracting the bones from the BCCs.
+
+## 2. Methods
+
+### 2.1 Dataset
+
+The experiments were performed on the SKI10 public challenge dataset for knee MRI cartilage segmentation.
+
+* Training: 60 MR images
+* Validation: 40 MR images
+
+### 2.2 BCD-Net & 2.5D Segmentation
+
+![Fib1]({{site.baseurl}}/assets/210128_BCDNet/img/fig1.png)
+
+**Figure 1:** BCD-Net.
+{: style="text-align: center; color: gray"}
+
+**Training BCD-Net:**
+
+* construction of bone-cartilage-complexes (BCCs)
+* adapt [**RefineNet (CVPR2017)**](https://ieeexplore.ieee.org/abstract/document/8100032) for the segmentation of BCCs and bones
+* subtract bone from BCC to get cartilage segmentation
+
+**2.5D Segmentation:**
+* train a BCD-Net for each of the three planes
+* combine the segmentation results by majority voting (MV)
+
+### 2.3 Evaluation
+
+#### Metrics
+
+* Dice similarity coefficients (DSC) for four classes
+* average symmetric surface distance (ASD)
+* root mean square surface distance (RMSD)
+* volume overlap error (VOE)
+* volume difference (VD)
+
+#### Trained Network for Comparison
+
+**To varify the BCD-Net **
+
+* conventional 2D 4-class (FB, TB, FC, TC) segmentation using RefineNet for each plane (S, C, A)
+
+* BCD-Net, which also uses RefineNet for segmentation but involves the BCC, for each plane (S, C, A)
+
+
+**To varify the 2.5D segmentation**
+
+* RefineNet (MV)
+* BCD-Net (MV)
+
+**Combine BCD-Net and conventional RefineNet by MV**
+
+* BCD-Net (MV6): we constructed the *BCD-Net (MV6)* method which averages all six segmentation masks, including three 2D RefineNet and three 2D BCD-Net, by majority voting.
+
+## 3. Results
+
+![Tab1]({{site.baseurl}}/assets/210128_BCDNet/img/fig2.png)
+
+* the proposed BCD-Net improves that accuracy of relatively smaller structures such as TB and TC thanks to the BCD extraction
+* The 2.5D segmentation showed general improvement in bone and cartilage segmentation in both RefineNet and BCD-Net methods
+* the *BCD-Net (MV6)* achieved the best DSCs for all classes of masks, thanks to combining both RefineNet and BCD-Net results.
+
+![Tab2]({{site.baseurl}}/assets/210128_BCDNet/img/fig3.png)
+
+![Fib2]({{site.baseurl}}/assets/210128_BCDNet/img/fig4.png)
+
+**Figure 2:** BCD-Net segmentation results; FB, TB, FC, and TC are masked in colors of blue, purple, red, and cyan, respectively.
+
+{: style="text-align: center; color: gray"}
