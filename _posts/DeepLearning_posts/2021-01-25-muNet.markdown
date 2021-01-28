@@ -44,7 +44,7 @@ The architecture is similar to UNet.
     $$D_{k}=\frac{2 \sum_{i}^{N} p_{i} g_{i}}{\sum_{i}^{N} p_{i}^{2}+\sum_{i}^{N} g_{i}^{2}}, \frac{\partial D_{k}}{\partial p_{j}}=2\left[\frac{g_{j}\left(\sum_{i}^{N} p_{l}^{2}+\sum_{i}^{N} g_{i}^{2}\right)-2 p_{j}\left(\sum_{l}^{N} p_{i} g_{i}\right)}{\left(\sum_{i}^{N} p_{i}^{2}+\sum_{i}^{N} g_{i}^{2}\right)^{2}}\right]$$
   * Loss, D, for main loss layer (shown as red in Fig 1) is given by,
     $$ D=\sum_{k-1}\left(\alpha_{k} * D_{k}\right)+\beta D_{4} $$
-    $$ \alpha_{k}=\alpha_{k}\left(1-\frac{\#  { (Iteration) }}{\#( { Total lteration }}\right), \quad \sum_{k-1} \alpha_{k}+\beta=1 $$
+    $$ \alpha_{k}=\alpha_{k}\left(1-\frac{\#  { (Iteration) }}{\#( { Total Iteration }}\right), \quad \sum_{k-1} \alpha_{k}+\beta=1 $$
 
 ### 2.2 Dataset
 
