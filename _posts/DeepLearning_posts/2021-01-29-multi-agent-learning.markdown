@@ -42,7 +42,7 @@ The proposed framework consists of two parts as follow:
 
 * The segmentor's structure is like [VNet](https://ieeexplore.ieee.org/abstract/document/7785132)
 
-  > All the convolutional layers in the residual blocks have filter size 3, stride 1 and zero-padding 1. PReLU activation and batch normalization follow the convolutional and deconvolutional layers. The coarse cartilage segmentor is trained based on multi-class cross entropy loss ℓ𝑚𝑐𝑒ℓmce to obtain cartilage masks from the down-sampled MR data (e.g., 192×192×160192×192×160)
+  All the convolutional layers in the residual blocks have filter size 3, stride 1 and zero-padding 1. PReLU activation and batch normalization follow the convolutional and deconvolutional layers. The coarse cartilage segmentor is trained based on multi-class cross entropy loss ℓ𝑚𝑐𝑒ℓmce to obtain cartilage masks from the down-sampled MR data (e.g., 192×192×160192×192×160)
 
 ### 2.2 Collaborative multi-agent learning
 
@@ -56,19 +56,19 @@ The proposed framework consists of two parts as follow:
 
 * add **attention mechanism** to skip connections
 
-  > the connecting operation becomes $o\left(\alpha \odot I_{l}, I_{h}^{u p}\right)$, where $$o$$ denotes concatenation along the channel dimension, and $\odot$ is element-wise multiplication. The attention mask $\alpha=m\left(\sigma_{r}\left(c_{l}\left(I_{l}\right)+c_{h}\left(I_{h}^{u p}\right)\right)\right)$ serves as a weight map that guides the learning to focus on desired region. Here, $c_{h}$ and $c_{l}$ are two convolutions of filter size 1 and stride 1; $\sigma_{r}$ is an activation function (e.g., ReLU); $m$ is another convolution of filter size 1 and stride 1 with sigmoid to contract the features to a single-channel mask.
+  the connecting operation becomes $o\left(\alpha \odot I_{l}, I_{h}^{u p}\right)$, where $$o$$ denotes concatenation along the channel dimension, and $\odot$ is element-wise multiplication. The attention mask $\alpha=m\left(\sigma_{r}\left(c_{l}\left(I_{l}\right)+c_{h}\left(I_{h}^{u p}\right)\right)\right)$ serves as a weight map that guides the learning to focus on desired region. Here, $c_{h}$ and $c_{l}$ are two convolutions of filter size 1 and stride 1; $\sigma_{r}$ is an activation function (e.g., ReLU); $m$ is another convolution of filter size 1 and stride 1 with sigmoid to contract the features to a single-channel mask.
 
 #### 2.2.2 ROI-fusion Layer
 
-> ROI-fusion layer $\mathcal{F}$ restores the single-cartilage output from each agent back to the original knee joint space where the mutual constraints and priors can be encoded. $\mathcal{F}\left(A_{f}, A_{t}, A_{p}\right)$ is implemented by using the location information of the three input ROIs to fuse the fine cartilage masks back to the original space. 
+ROI-fusion layer $\mathcal{F}$ restores the single-cartilage output from each agent back to the original knee joint space where the mutual constraints and priors can be encoded. $\mathcal{F}\left(A_{f}, A_{t}, A_{p}\right)$ is implemented by using the location information of the three input ROIs to fuse the fine cartilage masks back to the original space. 
 
 #### 2.2.3 Joint-label Discriminator (D)
 
-> We utilize a discriminator sub-network *D* to classify the fused multi-cartilage mask as “fake” and the whole GT label $y_{i}$ as “real”. 
->
-> In adversarial learning, the agents and the discriminator are trained alternatively. The parameters of agents are fixed when training the discriminator, and vice verse. In this way, discriminator sub-network can learn joint priors of multiple cartilages and guide the agents to produce better segmentation.
->
-> The input to the discriminator is a pair of MR knee image $x_{i}$ and multi-label cartilage mask (either the GT label $y_i$ or $\mathcal{F}\left(A_{f}, A_{t}, A_{p}\right)$ ). A global average layer is utilized at the end to generate a probability value for fake/real mask discrimination.
+We utilize a discriminator sub-network *D* to classify the fused multi-cartilage mask as “fake” and the whole GT label $y_{i}$ as “real”. 
+
+In adversarial learning, the agents and the discriminator are trained alternatively. The parameters of agents are fixed when training the discriminator, and vice verse. In this way, discriminator sub-network can learn joint priors of multiple cartilages and guide the agents to produce better segmentation.
+
+The input to the discriminator is a pair of MR knee image $x_{i}$ and multi-label cartilage mask (either the GT label $y_i$ or $\mathcal{F}\left(A_{f}, A_{t}, A_{p}\right)$ ). A global average layer is utilized at the end to generate a probability value for fake/real mask discrimination.
 
 #### 2.2.4 Loss Functions
 
