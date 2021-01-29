@@ -116,11 +116,6 @@ For comparison, we integrate two variants of DenseASPP into the collaborative mu
 * D1: the residual blocks and skip connections are replaced by DenseASPP blocks in the two down-sampled levels of the agent network
 * D2: only the deepest level is replaced with DenseASPP block
 
-## 5. References
-
-* <u>[Learn to pay attention](https://arxiv.org/abs/1804.02391)</u>
-* <u>[Contextual Additive Networks to Efficiently Boost 3D Image Segmentations](https://link.springer.com/chapter/10.1007/978-3-030-00889-5_11)</u>
-* <u>[DenseASPP for semantic segmen- tation in street scenes](https://ieeexplore.ieee.org/abstract/document/8578486)</u>
 
 
 
