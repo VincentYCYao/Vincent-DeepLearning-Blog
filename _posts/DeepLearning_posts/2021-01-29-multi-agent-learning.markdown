@@ -42,7 +42,7 @@ The proposed framework consists of two parts as follow:
 
 * The segmentor's structure is like [VNet](https://ieeexplore.ieee.org/abstract/document/7785132)
 
-  All the convolutional layers in the residual blocks have filter size 3, stride 1 and zero-padding 1. PReLU activation and batch normalization follow the convolutional and deconvolutional layers. The coarse cartilage segmentor is trained based on multi-class cross entropy loss ℓ𝑚𝑐𝑒ℓmce to obtain cartilage masks from the down-sampled MR data (e.g., 192×192×160192×192×160)
+  > All the convolutional layers in the residual blocks have filter size 3, stride 1 and zero-padding 1. PReLU activation and batch normalization follow the convolutional and deconvolutional layers. The coarse cartilage segmentor is trained based on multi-class cross entropy loss ℓ𝑚𝑐𝑒ℓmce to obtain cartilage masks from the down-sampled MR data (e.g., 192×192×160192×192×160)
 
 ### 2.2 Collaborative multi-agent learning
 
@@ -56,19 +56,19 @@ The proposed framework consists of two parts as follow:
 
 * add **attention mechanism** to skip connections
 
-  the connecting operation becomes $o\left(\alpha \odot I_{l}, I_{h}^{u p}\right)$, where $$o$$ denotes concatenation along the channel dimension, and $\odot$ is element-wise multiplication. The attention mask $\alpha=m\left(\sigma_{r}\left(c_{l}\left(I_{l}\right)+c_{h}\left(I_{h}^{u p}\right)\right)\right)$ serves as a weight map that guides the learning to focus on desired region. Here, $c_{h}$ and $c_{l}$ are two convolutions of filter size 1 and stride 1; $\sigma_{r}$ is an activation function (e.g., ReLU); $m$ is another convolution of filter size 1 and stride 1 with sigmoid to contract the features to a single-channel mask.
+  > the connecting operation becomes $$o\left(\alpha \odot I_{l}, I_{h}^{u p}\right)$$, where $$o$$ denotes concatenation along the channel dimension, and $$\odot$$ is element-wise multiplication. The attention mask $$\alpha=m\left(\sigma_{r}\left(c_{l}\left(I_{l}\right)+c_{h}\left(I_{h}^{u p}\right)\right)\right)$$ serves as a weight map that guides the learning to focus on desired region. Here, $$c_{h}$$ and $$c_{l}$$ are two convolutions of filter size 1 and stride 1; $$\sigma_{r}$$ is an activation function (e.g., ReLU); $$m$$ is another convolution of filter size 1 and stride 1 with sigmoid to contract the features to a single-channel mask.
 
 #### 2.2.2 ROI-fusion Layer
 
-ROI-fusion layer $\mathcal{F}$ restores the single-cartilage output from each agent back to the original knee joint space where the mutual constraints and priors can be encoded. $\mathcal{F}\left(A_{f}, A_{t}, A_{p}\right)$ is implemented by using the location information of the three input ROIs to fuse the fine cartilage masks back to the original space. 
+> ROI-fusion layer $$\mathcal{F}$$ restores the single-cartilage output from each agent back to the original knee joint space where the mutual constraints and priors can be encoded. $$\mathcal{F}\left(A_{f}, A_{t}, A_{p}\right)$$ is implemented by using the location information of the three input ROIs to fuse the fine cartilage masks back to the original space. 
 
 #### 2.2.3 Joint-label Discriminator (D)
 
-We utilize a discriminator sub-network *D* to classify the fused multi-cartilage mask as “fake” and the whole GT label $y_{i}$ as “real”. 
-
-In adversarial learning, the agents and the discriminator are trained alternatively. The parameters of agents are fixed when training the discriminator, and vice verse. In this way, discriminator sub-network can learn joint priors of multiple cartilages and guide the agents to produce better segmentation.
-
-The input to the discriminator is a pair of MR knee image $x_{i}$ and multi-label cartilage mask (either the GT label $y_i$ or $\mathcal{F}\left(A_{f}, A_{t}, A_{p}\right)$ ). A global average layer is utilized at the end to generate a probability value for fake/real mask discrimination.
+> We utilize a discriminator sub-network *D* to classify the fused multi-cartilage mask as “fake” and the whole GT label $$y_{i}$$ as “real”. 
+>
+> In adversarial learning, the agents and the discriminator are trained alternatively. The parameters of agents are fixed when training the discriminator, and vice verse. In this way, discriminator sub-network can learn joint priors of multiple cartilages and guide the agents to produce better segmentation.
+>
+> The input to the discriminator is a pair of MR knee image $$x_{i}$$ and multi-label cartilage mask (either the GT label $$y_i$$ or $$\mathcal{F}\left(A_{f}, A_{t}, A_{p}\right)$$). A global average layer is utilized at the end to generate a probability value for fake/real mask discrimination.
 
 #### 2.2.4 Loss Functions
 
@@ -78,7 +78,7 @@ $$\sum_{i}\left\{\ell_{b}\left[D\left(\mathbf{x}_{i}, \mathbf{y}_{i}\right), 1\r
 
 **Loss function for agents:**
 
-$$\sum_{i}\left\{\sum_{c=\{f, t, p\}} L_{s}\left(\mathbf{x}_{i, c}, \mathbf{y}_{i, c}\right)+L_{m}+\ell_{b}\left[D\left(\mathbf{x}_{i}, \mathcal{F}\left(A_{f}, A_{t}, A_{p}\right)\right), 1\right]\right\}$$, where
+$$\sum_{i}\left\{\sum_{c=\{f, t, p\}} L_{s}\left(\mathbf{x}_{i, c}, \mathbf{y}_{i, c}\right)+L_{m}+\ell_{b}\left[D\left(\mathbf{x}_{i}, \mathcal{F}\left(A_{f}, A_{t}, A_{p}\right)\right), 1\right]\right\}$$
 
 $$L_{s}=\ell_{b}\left[A_{c}\left(\mathbf{x}_{i, c}\right), \mathbf{y}_{i, c}\right]$$
 
@@ -106,6 +106,7 @@ $$L_{m}=\ell_{\text {mce }}\left[\mathcal{F}\left(A_{f}, A_{t}, A_{p}\right), \m
 | *C*0   | 0.814             | 31.30     | 0.205     | 0.806            | 32.42     | 0.199     | 0.771              | 35.74     | 0.350     | 0.809          | 31.99     | 0.213     |
 | **P1** | 0.868             | 23.19     | 0.108     | 0.854            | 25.17     | 0.126     | 0.824              | 28.78     | 0.201     | 0.862          | 24.24     | 0.110     |
 | **P2** | **0.900**         | **18.82** | **0.074** | **0.889**        | **19.81** | **0.082** | **0.880**          | **21.19** | **0.075** | **0.893**      | **19.19** | **0.073** |
+
 
 * C0 represents the coarse cartilage extraction by the segmentor 
 * P1 denotes the fused results generated by the proposed segmentation agents, without the joint learning by the adversarial sub-network
