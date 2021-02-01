@@ -28,7 +28,6 @@ The interpretation of knee MRI is time-intensive and subject to diagnostic error
 * validation set: 120 exams (113 patients)
 
 ![fig1]({{site.baseurl}}/assets/210122_MRNet/img/fig1.png)
-
 **Figure 1.  Experimental setup flowchart.** We retrospectively collected a dataset of 1,370 knee MRI examinations used to develop the model and to assess the model and clinical experts. Labels were prospectively obtained through manual extraction from clinical reports.  The validation set DICOMs correspond to the same exams as the validation set, but the images in the validation set were preprocessed before input to the model.
 {: style="text-align: center; color: gray"}
 
@@ -60,7 +59,6 @@ The interpretation of knee MRI is time-intensive and subject to diagnostic error
 * fully connected layer + sigmoid activation
 
 ![fig2]({{site.baseurl}}/assets/210122_MRNet/img/fig2.png)
-
 **Figure 2. MRNet architecture.** The MRNet is a convolutional neural network (CNN) that takes as input a series of MRI images and outputs a classification prediction.  We trained a different MRNet for each task (abnormality, anterior cruciate ligament [ACL] tear, meniscal tear) and series type (sagittal, coronal, axial), resulting in 9 different MRNets (for external validation, we use only the sagittal plane ACL tear MRNet).
 {: style="text-align: center; color: gray"}
 
@@ -71,7 +69,6 @@ The interpretation of knee MRI is time-intensive and subject to diagnostic error
 >  Thus, the brightest areas of the CAMs are the regions that most influence the model’s prediction.
 
 ![fig3]({{site.baseurl}}/assets/210122_MRNet/img/fig3.png)
-
 **Figure 3. Class activation mappings for MRNet interpretation.** Class activation mappings (CAMs) highlight which pixels in the images are important for the model’s classification decision.
 {: style="text-align: center; color: gray"}
 
@@ -84,7 +81,6 @@ The most beneficial series, determined from the coefficients of the fitted logis
 * coronal T1 for ACL tears
 
 ![fig4]({{site.baseurl}}/assets/210122_MRNet/img/fig4.png)
-
 **Figure 4. Combining series predictions using logistic regression.** Each examination contains 3 types of series: sagittal, coronal, and axial. For each task (abnormality, ACL tear, meniscal tear), we trained a logistic regression classifier to combine the 3 probabilities output by the MRNets to produce a single predicted probability for the exam.
 {: style="text-align: center; color: gray"}
 

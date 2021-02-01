@@ -10,11 +10,8 @@ In this blog, the paper [Collaborative Multi-agent Learning for MR Knee Articula
 In this paper, the author proposed a novel framework for knee cartilage segmentation. The key contribution is the **adversarial learning based collaborative multi-agent segmentation network** with features as follow:
 
 * three parallel **segmentation agents** to segment cartilages in their respective region of interest (ROI) — one network for each of the Femoral Cartilage (FC), Tibial Cartilage (TC), and Patellar Cartilage (PC)
-
 * a novel **ROI-fusion layer** to fuse the segmentations from the above three networks
-
 * **collaborative learning** driven by an adversarial sub-network.
-
   > The ROI-fusion layer not only fuses the individual cartilages from multiple agents, but also backpropagates the training loss from the adversarial sub-network to each agent to enable joint learning of shape and spatial constraints
 
 ## 1. Background
@@ -41,7 +38,6 @@ The proposed framework consists of two parts as follow:
 {: style="text-align: center; color: gray"}
 
 * The segmentor's structure is like [VNet](https://ieeexplore.ieee.org/abstract/document/7785132)
-
   > All the convolutional layers in the residual blocks have filter size 3, stride 1 and zero-padding 1. PReLU activation and batch normalization follow the convolutional and deconvolutional layers. The coarse cartilage segmentor is trained based on multi-class cross entropy loss $$l_{mce}$$ to obtain cartilage masks from the down-sampled MR data (e.g., 192×192×160192×192×160)
 
 ### 2.2 Collaborative multi-agent learning
@@ -55,9 +51,7 @@ The proposed framework consists of two parts as follow:
 > The segmentation agent $$A_{c=\{f, t, p\}}$$ ($$f$$, $$t$$ and $$p$$ stand for FC, TC and PC, respectively) aims to generate fine cartilage binary mask $$A_{c}(x_{i, c})$$  in the respective ROI $$x_{i, c}$$ (its ground truth (GT) ROI is $$y_{i,c}$$ and $$i$$ is the data index).
 
 * adapt VNet-like structure
-
 * add **attention mechanism** to skip connections
-
   > the connecting operation becomes $$o\left(\alpha \odot I_{l}, I_{h}^{up}\right)$$, where $$I_l$$ denotes low level features, $$I_{h}^{up}$$ denotes high level features, $$o$$ denotes concatenation along the channel dimension, and $$\odot$$ is element-wise multiplication. The attention mask $$\alpha=m\left(\sigma_{r}\left(c_{l}\left(I_{l}\right)+c_{h}\left(I_{h}^{u p}\right)\right)\right)$$ serves as a weight map that guides the learning to focus on desired region. Here, $$c_{h}$$ and $$c_{l}$$ are two convolutions of filter size 1 and stride 1; $$\sigma_{r}$$ is an activation function (e.g., ReLU); $$m$$ is another convolution of filter size 1 and stride 1 with sigmoid to contract the features to a single-channel mask.
 
 #### 2.2.2 ROI-fusion Layer
@@ -115,7 +109,4 @@ $$L_{m}=\ell_{\text {mce }}\left[\mathcal{F}\left(A_{f}, A_{t}, A_{p}\right), \m
 * P2: results from the proposed method by employing the collaborative multi-agent learning framework
 * D1: the residual blocks and skip connections are replaced by **DenseASPP** blocks in the two down-sampled levels of the agent network
 * D2: only the deepest level is replaced with **DenseASPP** block
-
-
-
 

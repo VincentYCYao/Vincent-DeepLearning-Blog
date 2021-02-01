@@ -24,12 +24,10 @@ This is one of the early explorations of the applications of CNN on knee cartila
 **Output of the CNN:** probability map
 
 ![fig1]({{site.baseurl}}/assets/210125_TriplanarCNN//img/fig1.png)
-
 **Figure 1.** The proposed CNN architecture.
 {: style="text-align: center; color: gray"}
 
 ![fig2]({{site.baseurl}}/assets/210125_TriplanarCNN//img/fig2.png)
-
 **Figure 2.** The three images planes giving rise to our triplanar convolutional neural network (CNN) architecture. One patch centered in the voxel is extracted from each of the planes. The three CNNs are fused in the final layer.
 {: style="text-align: center; color: gray"}
 

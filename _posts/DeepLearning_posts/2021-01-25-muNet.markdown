@@ -20,7 +20,6 @@ In this paper, the author proposed a 3D CNN called $$\mu$$Net, inspired by the 3
 ### 2.1 Network Architecture: $$\mu$$Net
 
 ![fig1]({{site.baseurl}}/assets/210125_muNet/img/fig1.png)
-
 Figure 1. $$\mu$$Net.
 {: style="text-align: center; color: gray"}
 
@@ -75,12 +74,10 @@ The architecture is similar to UNet.
 ## 3. Results
 
 ![Fib3]({{site.baseurl}}/assets/210125_muNet/img/fig3.png)
-
 Table 1: Comparison of results (mean ± standard deviation along with 95% CI) on MICCAI datasets with Imorphics
 {: style="text-align: center; color: gray"}
 
 ![Fib2]({{site.baseurl}}/assets/210125_muNet/img/fig2.png)
-
 Table 2: Metrics for on the OAI DESS studies for the six structures and background along with 95% CIs.
 {: style="text-align: center; color: gray"}
 
