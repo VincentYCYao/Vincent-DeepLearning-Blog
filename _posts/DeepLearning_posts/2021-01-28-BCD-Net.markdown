@@ -48,7 +48,7 @@ The experiments were performed on the SKI10 public challenge dataset for knee MR
 * volume overlap error (VOE)
 * volume difference (VD)
 
-#### Trained Network for Comparison
+#### Networks for Comparison
 
 **To varify the BCD-Net**
 * conventional 2D 4-class (FB, TB, FC, TC) segmentation using RefineNet for each plane (S, C, A)

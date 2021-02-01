@@ -8,7 +8,6 @@ categories: deeplearning
 In this blog, the paper [Collaborative Multi-agent Learning for MR Knee Articular Cartilage Segmentation](https://link.springer.com/chapter/10.1007/978-3-030-32245-8_32) is reviewed. It was published on **MICCAI 2019** (Medical Image Computing and Computer Assisted Intervention).
 
 In this paper, the author proposed a novel framework for knee cartilage segmentation. The key contribution is the **adversarial learning based collaborative multi-agent segmentation network** with features as follow:
-
 * three parallel **segmentation agents** to segment cartilages in their respective region of interest (ROI) — one network for each of the Femoral Cartilage (FC), Tibial Cartilage (TC), and Patellar Cartilage (PC)
 * a novel **ROI-fusion layer** to fuse the segmentations from the above three networks
 * **collaborative learning** driven by an adversarial sub-network.

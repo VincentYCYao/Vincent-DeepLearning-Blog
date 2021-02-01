@@ -82,13 +82,21 @@ In this paper, the author proposed a segmentation pipeline which consists of a *
 > To compare the performance with networks using 3D convolutional filters, 2 state-of-the-art 3D CNNs, **deep-Medic** and **V-Net,** were adapted in the current study for simultaneously segmenting all knee joint tissue structures.
 
 * Dice Coefficient (DC): 
+
   $$\mathrm{DC}=\frac{2|S \cap R|}{|S|+|R|}$$
+
 * Volumetric Overlap Error (VOE): 
+
   $$\mathrm{VOE}=100\left(1-\frac{|S \cap R|}{|S \cup R|}\right)$$
+
 * Volumetric Difference (VD):  
+
   $$\mathrm{VD}=100 \frac{|S|-|R|}{|R|}$$
+
 * Average Symmetric Surface Distance (ASSD): 
+
   $$\operatorname{ASSD}=\frac{\sum_{s \in \partial(S)} \min _{r \in \partial(R)}\|s-r\|+\sum_{r \in \partial(R)} \min _{s \in \partial(S)}\|r-s\|}{|\partial(S)|+|\partial(R)|}$$
+
 
 ## 5. Results
 
