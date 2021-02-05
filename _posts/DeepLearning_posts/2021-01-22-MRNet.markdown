@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Review: MRNet - Detecting Abnormalities from Knee MRI"
+title: "Review: Detecting Abnormalities from Knee MRI Using MR-Net"
 date:  2021-01-22 21:00:00 +0800
 categories: deeplearning
 ---
