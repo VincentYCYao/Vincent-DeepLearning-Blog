@@ -33,6 +33,43 @@ apt install fish
 
 Other platforms: https://fishshell.com
 
+Install Fish shell without root access
+
+```bash
+#!/bin/bash
+ 
+# Script for installing Fish Shell on systems without root access.
+# Fish Shell will be installed in $HOME/bin/apps/fish.
+# It's assumed that wget and a C/C++ compiler are installed.
+ 
+# exit on error
+set -e
+
+FISH_SHELL_VERSION=3.0.2
+ 
+# create our directories
+mkdir -pv $HOME/bin/apps/fish $HOME/fish_shell_tmp
+cd $HOME/fish_shell_tmp
+ 
+# download source files for Fish Shell
+wget https://github.com/fish-shell/fish-shell/releases/download/${FISH_SHELL_VERSION}/fish-${FISH_SHELL_VERSION}.tar.gz
+ 
+# extract files, configure, and compile
+tar xvzf fish-${FISH_SHELL_VERSION}.tar.gz
+cd fish-${FISH_SHELL_VERSION}
+./configure --prefix=$HOME/bin/apps/fish --disable-shared
+make
+make install
+
+# add command to user's bin
+touch $HOME/bin/fish
+echo -e "#!/bin/sh\n~/bin/apps/fish/bin/fish" > $HOME/bin/fish
+chmod +x $HOME/bin/fish
+
+# remove temporary directories
+rm -rf $HOME/fish_shell_tmp
+```
+
 
 
 # 2. Features
