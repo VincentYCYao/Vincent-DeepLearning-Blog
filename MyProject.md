@@ -15,7 +15,8 @@ order: 2
 
 **Updates on cartilage thickness measurement**
 
-* **[4 Jan 2021]** the surface normal orientation correction algorithm in the proposed SN approach is improved, being more accurate and robust against various surface shapes
+* **[25 Feb 2021]** the abstract titled **"Automated Knee Cartilage Thickness Measurement from Magnetic Resonance Images"** has been accepted for poster presentation on [**ISMRM2021**](https://www.ismrm.org)
+* **[4 Jan 2021]** the accuracy and robustness of the proposed SN algorithm have been improved 
 * **[29 Dec 2020]** the SN & 3dNN methods are tested with synthesized data whose ground truth thickness maps are known
 * **[16 Dec 2020]** an abstract has been submitted to [**ISMRM2021**](https://www.ismrm.org)
 * **[15 Dec 2020]** the uncertainty in cartilage thickness measurement using the proposed SN method is evaluated

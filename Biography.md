@@ -30,11 +30,15 @@ order: 0
 
 # Publications
 
-* Liang,Y.,**Yao,Y.C.**,Zhao,L.,Shi,L.,Chen,Y.K.,Mok,V.C.,...&Tang,W.K.(2020).Topological reorganization of the default mode network in patients with poststroke depressive symptoms: A resting-state fMRI study. Journal of affective disorders, 260, 557-568.
-* Lu,X.,Yang,Y.,Wu,F.,Gao,M.,Xu,Y.,Zhang,Y.,**Yao,Y.C**,...&Zhong,X.(2016).Discriminativeanalysisof schizophrenia using support vector machine and recursive feature elimination on structural MRI images. Medicine, 95(30).
+## Peer-reviewed Journal Papers
 
-# Conference
+* Liang, Y., **Yao, Y. C.**, Zhao, L., Shi, L., Chen, Y. K., Mok, V.C., Ungvari, G.S., Chu, W.C., Tang, W. K., 2020. **Topological reorganization of the default mode network in patients with poststroke depressive symptoms: A resting-state fMRI study**. Journal of Affective Disorders 260, 557–568. https://doi.org/10.1016/j.jad.2019.09.051
+* Lu, X., Yang, Y., Wu, F., Gao, M., Xu, Y., Zhang, Y., **Yao, Y.**, Du, X., Li, C., Wu, L., Zhong, X., Zhou, Y., Fan, N., Zheng, Y., Xiong, D., Peng, H., Escudero, J., Huang, B., Li, X., Ning, Y., Wu, K., 2016. **Discriminative analysis of schizophrenia using support vector machine and recursive feature elimination on structural MRI images**. Medicine 95, e3973. https://doi.org/10.1097/MD.0000000000003973
 
+## Conference Abstract
+
+* **Yongcheng YAO**, Sheheryar KHAN, Junru ZHONG, Siyue LI, and Weitian CHEN. **Automated Knee Cartilage Thickness Measurement from Magnetic Resonance Images**. ISMRM Annual Meeting 2021, virtual meeting, **digital poster presentation**
+* Siyue LI, Shutian ZHAO, **Yongcheng YAO**, Weitian CHEN. **Deep Learning-based Semi-supervised Meniscus Segmentation with Uncertainty Estimation**. ISMRM Annual Meeting 2021, virtual meeting, **oral presentation**
 * The 17th International Conference on Biomedical Engineering (ICBME 2019), Singapore, **oral presentation**
 
 # Scholarship & Studentship
